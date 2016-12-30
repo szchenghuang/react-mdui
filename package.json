@@ -1,0 +1,40 @@
+{
+  "name": "react-mdui",
+  "author": "szchenghuang <szchenghuang@gmail.com>",
+  "version": "0.0.0",
+  "description": "Extend MDUI into ReactJS.",
+  "main": "index.js",
+  "keywords": [
+    "react",
+    "material-design",
+    "css"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "rm -rf dist && mkdir dist && babel ./src --out-dir ./dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "homepage": "https://github.com/szchenghuang/react-mdui#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/szchenghuang/react-mdui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/szchenghuang/react-mdui/issues"
+  },
+  "dependencies": {
+    "mdui": "^0.1.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-core": "^6.2.1",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.1.18",
+    "babel-register": "^6.11.6",
+    "react": "^0.14.3"
+  },
+  "peerDevDependencies": {
+    "react": "^0.14.3"
+  }
+}
