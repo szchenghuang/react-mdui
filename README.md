@@ -4,12 +4,34 @@
 
 # react-mdui #
 
-[MDUI](https://github.com/zdhxiong/mdui) in ReactJS.
+[MDUI][mdui] in ReactJS.
 
 ## Install ##
 
+```sh
+npm install react-mdui --save
+```
+
 ## Usage ##
+
+```sh
+import { Button } from 'react-mdui';
+
+const button = (
+  <Button
+    node="button"
+    type="raised"
+    block
+    ripple
+    disabled
+  >
+    Click Me!
+  </Button>
+);
+```
 
 ## License ##
 
 MIT. See [LICENSE.md](http://github.com/szchenghuang/react-mdui/blob/master/LICENSE.md) for details.
+
+[mdui]: https://github.com/zdhxiong/mdui
