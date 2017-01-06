@@ -30,6 +30,7 @@ const App = React.createClass({
   render() {
     return (
       <div>
+        <h1>react-mdui</h1>
         <h3>Components</h3>
         <h4>Button</h4>
         <Button

@@ -95,6 +95,11 @@
 	      'div',
 	      null,
 	      _react2.default.createElement(
+	        'h1',
+	        null,
+	        'react-mdui'
+	      ),
+	      _react2.default.createElement(
 	        'h3',
 	        null,
 	        'Components'
