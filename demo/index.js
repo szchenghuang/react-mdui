@@ -34,10 +34,8 @@ const App = React.createClass({
         <h4>Button</h4>
         <Button
           node="button"
-          type="raised"
-          block
+          raised
           ripple
-          disabled
         >
           This is a button
         </Button>
