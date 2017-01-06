@@ -1,6 +1,7 @@
-[![NPM Package](https://img.shields.io/npm/v/react-mdui.svg)](https://www.npmjs.org/package/react-mdui)
-[![Dependency status](https://david-dm.org/szchenghuang/react-mdui/status.svg)](https://david-dm.org/szchenghuang/react-mdui/)
-[![devDependency status](https://david-dm.org/szchenghuang/react-mdui/dev-status.svg)](https://david-dm.org/szchenghuang/react-mdui/?type=dev)
+[![Build Status][travis_img]][travis_site]
+[![NPM Package][npm_img]][npm_site]
+[![Dependency status][david_img]][david_site]
+[![devDependency status][david_dev_img]][david_dev_site]
 
 # react-mdui #
 
@@ -58,3 +59,12 @@ MIT. See [LICENSE.md](http://github.com/szchenghuang/react-mdui/blob/master/LICE
 [Icon]: https://github.com/szchenghuang/react-mdui/blob/master/docs/components/Icon.md
 [Panel]: https://github.com/szchenghuang/react-mdui/blob/master/docs/components/Panel.md
 [Slider]: https://github.com/szchenghuang/react-mdui/blob/master/docs/components/Slider.md
+
+[travis_img]: https://travis-ci.org/szchenghuang/react-mdui.svg?branch=master
+[travis_site]: https://travis-ci.org/szchenghuang/react-mdui
+[npm_img]: https://img.shields.io/npm/v/react-mdui.svg
+[npm_site]: https://www.npmjs.org/package/react-mdui
+[david_img]: https://david-dm.org/szchenghuang/react-mdui/status.svg
+[david_site]: https://david-dm.org/szchenghuang/react-mdui/
+[david_dev_img]: https://david-dm.org/szchenghuang/react-mdui/dev-status.svg
+[david_dev_site]: https://david-dm.org/szchenghuang/react-mdui/?type=dev
