@@ -7,6 +7,10 @@
 
 [MDUI][mdui] in ReactJS.
 
+## Demo ##
+
+[Demo][demo] is a preview rendered with react-mdui components.
+
 ## Install ##
 
 ```sh
@@ -59,6 +63,8 @@ MIT. See [LICENSE.md](http://github.com/szchenghuang/react-mdui/blob/master/LICE
 [Icon]: https://github.com/szchenghuang/react-mdui/blob/master/docs/components/Icon.md
 [Panel]: https://github.com/szchenghuang/react-mdui/blob/master/docs/components/Panel.md
 [Slider]: https://github.com/szchenghuang/react-mdui/blob/master/docs/components/Slider.md
+
+[demo]: https://szchenghuang.github.io/react-mdui/
 
 [travis_img]: https://travis-ci.org/szchenghuang/react-mdui.svg?branch=master
 [travis_site]: https://travis-ci.org/szchenghuang/react-mdui
