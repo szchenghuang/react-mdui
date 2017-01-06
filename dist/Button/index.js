@@ -63,7 +63,7 @@ var Button = function (_React$PureComponent) {
         'mdui-ripple': !!ripple
       }));
 
-      var props = _lodash2.default.omit(this.props, 'style', 'className', 'node', 'raised', 'icon', 'block', 'ripple');
+      var props = _lodash2.default.omit(this.props, 'style', 'className', 'node', 'flat', 'raised', 'icon', 'block', 'ripple');
 
       if ('a' === node) {
         return _react2.default.createElement(

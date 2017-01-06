@@ -31,6 +31,7 @@ class Button extends React.PureComponent {
       'style',
       'className',
       'node',
+      'flat',
       'raised',
       'icon',
       'block',
