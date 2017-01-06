@@ -1,15 +1,19 @@
 'use strict';
 
+import _ from 'lodash';
 import React, { PropTypes } from 'react';
+import { css } from 'glamor'
 import ClassNames from 'classnames';
 
 class Button extends React.PureComponent {
   render() {
     const {
+      style,
       className,
       children,
       node,
-      type,
+      raised,
+      icon,
       block,
       ripple
     } = this.props;
@@ -17,19 +21,26 @@ class Button extends React.PureComponent {
     const clx = ClassNames({
       ...( className && { [ className ]: true } ),
       'mdui-btn': true,
-      'mdui-btn-raised': 'raised' === type,
-      'mdui-btn-icon': 'icon' === type,
+      'mdui-btn-raised': !!raised,
+      'mdui-btn-icon': !!icon,
       'mdui-btn-block': !!block,
       'mdui-ripple': !!ripple
     });
 
-    const props = {
-      ...this.props
-    };
+    const props = _.omit( this.props,
+      'style',
+      'className',
+      'node',
+      'raised',
+      'icon',
+      'block',
+      'ripple'
+    );
 
     if ( 'a' === node ) {
       return (
         <a
+          { ...css( style ) }
           className={ clx }
           { ...props }
         >
@@ -41,6 +52,7 @@ class Button extends React.PureComponent {
     if ( 'button' === node ) {
       return (
         <button
+          { ...css( style ) }
           className={ clx }
           { ...props }
         >
@@ -52,6 +64,7 @@ class Button extends React.PureComponent {
     if ( 'input' === node ) {
       return (
         <input
+          { ...css( style ) }
           className={ clx }
           { ...props }
         >
@@ -63,17 +76,23 @@ class Button extends React.PureComponent {
 }
 
 Button.propTypes = {
+  style: PropTypes.object,
   className: PropTypes.string,
   children: PropTypes.node,
   node: PropTypes.string,
-  type: PropTypes.string,
+  flat: PropTypes.any,
+  raised: PropTypes.any,
+  icon: PropTypes.any,
   block: PropTypes.any,
   ripple: PropTypes.any,
-  disabled: PropTypes.any
+  disabled: PropTypes.any,
+  onClick: PropTypes.func
 };
 
 Button.defaultProps = {
-  node: 'a'
+  node: 'a',
+  flat: true,
+  onClick: _.noop
 };
 
 export default Button;

@@ -2,6 +2,7 @@
 
 import _ from 'lodash';
 import React, { PropTypes } from 'react';
+import { css } from 'glamor';
 import ClassNames from 'classnames';
 
 import mdui from '../index';
@@ -13,6 +14,7 @@ class Slider extends React.PureComponent {
 
   render() {
     const {
+      style,
       className,
       discrete,
       step,
@@ -41,6 +43,7 @@ class Slider extends React.PureComponent {
     return (
       <label
         ref={ node => this.root = node }
+        { ...css( style ) }
         className={ clx }
       >
         <input
@@ -52,6 +55,7 @@ class Slider extends React.PureComponent {
 }
 
 Slider.propTypes = {
+  style: PropTypes.object,
   className: PropTypes.string,
   discrete: PropTypes.any,
   step: PropTypes.number,
@@ -63,7 +67,6 @@ Slider.propTypes = {
 };
 
 Slider.defaultProps = {
-  discrete: false,
   step: 1,
   min: 0,
   max: 100,
