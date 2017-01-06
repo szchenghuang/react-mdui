@@ -9,7 +9,7 @@
 //#############################################################################
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Button, Chip } from '../';
+import { Button, Chip, Icon } from '../';
 
 //#############################################################################
 // Application includes.

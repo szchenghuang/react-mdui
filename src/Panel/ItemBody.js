@@ -1,6 +1,7 @@
 'use strict';
 
 import React, { PropTypes } from 'react';
+import { css } from 'glamor';
 import ClassNames from 'classnames';
 
 class ItemBody extends React.PureComponent {
@@ -17,7 +18,10 @@ class ItemBody extends React.PureComponent {
     });
 
     return (
-      <div className={ clx }>
+      <div
+        { ...css( style ) }
+        className={ clx }
+      >
         { children }
       </div>
     );

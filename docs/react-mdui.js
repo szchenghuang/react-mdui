@@ -123,7 +123,7 @@
 	      _react2.default.createElement(
 	        _.Chip,
 	        {
-	          icon: _react2.default.createElement(Icon, { materialIcon: '\uE87C' }),
+	          icon: _react2.default.createElement(_.Icon, { materialIcon: '\uE87C' }),
 	          title: 'Click Me',
 	          'delete': true,
 	          onClickDelete: function onClickDelete() {
@@ -21606,6 +21606,7 @@
 	//#############################################################################
 	// Exports.
 	//#############################################################################
+	/* global mdui: true */
 	exports.default = mdui;
 
 	//#############################################################################
@@ -42148,6 +42149,10 @@
 	  };
 	}();
 
+	var _lodash = __webpack_require__(239);
+
+	var _lodash2 = _interopRequireDefault(_lodash);
+
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -42251,7 +42256,7 @@
 	};
 
 	Chip.defaultProps = {
-	  onClickDelete: _.noop
+	  onClickDelete: _lodash2.default.noop
 	};
 
 	exports.default = Chip;
@@ -43280,6 +43285,8 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _glamor = __webpack_require__(241);
+
 	var _classnames = __webpack_require__(257);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
@@ -43335,7 +43342,9 @@
 	        'mdui-panel-item-body': true
 	      }));
 
-	      return _react2.default.createElement('div', { className: clx }, children);
+	      return _react2.default.createElement('div', _extends({}, (0, _glamor.css)(style), {
+	        className: clx
+	      }), children);
 	    }
 	  }]);
 

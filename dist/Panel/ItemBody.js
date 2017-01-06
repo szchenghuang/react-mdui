@@ -12,6 +12,8 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _glamor = require('glamor');
+
 var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
@@ -50,7 +52,9 @@ var ItemBody = function (_React$PureComponent) {
 
       return _react2.default.createElement(
         'div',
-        { className: clx },
+        _extends({}, (0, _glamor.css)(style), {
+          className: clx
+        }),
         children
       );
     }

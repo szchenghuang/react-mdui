@@ -25,10 +25,10 @@ import Panel, {
 } from './Panel';
 import Slider from './Slider';
 
-
 //#############################################################################
 // Exports.
 //#############################################################################
+/* global mdui: true */
 export default mdui;
 export {
   Button,
