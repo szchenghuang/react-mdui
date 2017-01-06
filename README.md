@@ -58,11 +58,11 @@ import Button from 'react-mdui/Button';
 MIT. See [LICENSE.md](http://github.com/szchenghuang/react-mdui/blob/master/LICENSE.md) for details.
 
 [mdui]: https://github.com/zdhxiong/mdui
-[Button]: https://github.com/szchenghuang/react-mdui/blob/master/docs/components/Button.md
-[Chip]: https://github.com/szchenghuang/react-mdui/blob/master/docs/components/Chip.md
-[Icon]: https://github.com/szchenghuang/react-mdui/blob/master/docs/components/Icon.md
-[Panel]: https://github.com/szchenghuang/react-mdui/blob/master/docs/components/Panel.md
-[Slider]: https://github.com/szchenghuang/react-mdui/blob/master/docs/components/Slider.md
+[Button]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Button.md
+[Chip]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Chip.md
+[Icon]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Icon.md
+[Panel]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Panel.md
+[Slider]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Slider.md
 
 [demo]: https://szchenghuang.github.io/react-mdui/
 
