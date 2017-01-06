@@ -7,33 +7,53 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Slider = exports.Button = exports.Icon = undefined;
+exports.Slider = exports.PanelItemActions = exports.PanelItemBody = exports.PanelItemArrow = exports.PanelItemSummary = exports.PanelItemTitle = exports.PanelItemHeader = exports.PanelItem = exports.Panel = exports.Icon = exports.ChipTitle = exports.Chip = exports.Button = undefined;
 
 require('mdui/dist/css/mdui.min.css');
 
 require('mdui/dist/js/mdui.min.js');
 
-var _icon = require('./icon');
+var _Button = require('./Button');
 
-var _icon2 = _interopRequireDefault(_icon);
+var _Button2 = _interopRequireDefault(_Button);
 
-var _button = require('./button');
+var _Chip = require('./Chip');
 
-var _button2 = _interopRequireDefault(_button);
+var _Chip2 = _interopRequireDefault(_Chip);
 
-var _slider = require('./slider');
+var _Icon = require('./Icon');
 
-var _slider2 = _interopRequireDefault(_slider);
+var _Icon2 = _interopRequireDefault(_Icon);
+
+var _Panel = require('./Panel');
+
+var _Panel2 = _interopRequireDefault(_Panel);
+
+var _Slider = require('./Slider');
+
+var _Slider2 = _interopRequireDefault(_Slider);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //#############################################################################
 // Exports.
 //#############################################################################
-exports.Icon = _icon2.default;
-exports.Button = _button2.default;
-exports.Slider = _slider2.default;
+exports.default = mdui;
 
 //#############################################################################
 // Application includes.
 //#############################################################################
+
+exports.Button = _Button2.default;
+exports.Chip = _Chip2.default;
+exports.ChipTitle = _Chip.Title;
+exports.Icon = _Icon2.default;
+exports.Panel = _Panel2.default;
+exports.PanelItem = _Panel.Item;
+exports.PanelItemHeader = _Panel.ItemHeader;
+exports.PanelItemTitle = _Panel.ItemTitle;
+exports.PanelItemSummary = _Panel.ItemSummary;
+exports.PanelItemArrow = _Panel.ItemArrow;
+exports.PanelItemBody = _Panel.ItemBody;
+exports.PanelItemActions = _Panel.ItemActions;
+exports.Slider = _Slider2.default;

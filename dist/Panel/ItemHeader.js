@@ -12,6 +12,8 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _glamor = require('glamor');
+
 var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
@@ -26,84 +28,45 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Button = function (_React$PureComponent) {
-  _inherits(Button, _React$PureComponent);
+var ItemHeader = function (_React$PureComponent) {
+  _inherits(ItemHeader, _React$PureComponent);
 
-  function Button() {
-    _classCallCheck(this, Button);
+  function ItemHeader() {
+    _classCallCheck(this, ItemHeader);
 
-    return _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (ItemHeader.__proto__ || Object.getPrototypeOf(ItemHeader)).apply(this, arguments));
   }
 
-  _createClass(Button, [{
+  _createClass(ItemHeader, [{
     key: 'render',
     value: function render() {
       var _props = this.props,
+          style = _props.style,
           className = _props.className,
-          children = _props.children,
-          node = _props.node,
-          type = _props.type,
-          block = _props.block,
-          ripple = _props.ripple;
+          children = _props.children;
 
 
       var clx = (0, _classnames2.default)(_extends({}, className && _defineProperty({}, className, true), {
-        'mdui-btn': true,
-        'mdui-btn-raised': 'raised' === type,
-        'mdui-btn-icon': 'icon' === type,
-        'mdui-btn-block': !!block,
-        'mdui-ripple': !!ripple
+        'mdui-panel-item-header': true
       }));
 
-      var props = _extends({}, this.props);
-
-      if ('a' === node) {
-        return _react2.default.createElement(
-          'a',
-          _extends({
-            className: clx
-          }, props),
-          children
-        );
-      }
-
-      if ('button' === node) {
-        return _react2.default.createElement(
-          'button',
-          _extends({
-            className: clx
-          }, props),
-          children
-        );
-      }
-
-      if ('input' === node) {
-        return _react2.default.createElement(
-          'input',
-          _extends({
-            className: clx
-          }, props),
-          children
-        );
-      }
+      return _react2.default.createElement(
+        'div',
+        _extends({}, (0, _glamor.css)(style), {
+          className: clx
+        }),
+        children
+      );
     }
   }]);
 
-  return Button;
+  return ItemHeader;
 }(_react2.default.PureComponent);
 
-Button.propTypes = {
+ItemHeader.propTypes = {
+  style: _react.PropTypes.object,
   className: _react.PropTypes.string,
-  children: _react.PropTypes.node,
-  node: _react.PropTypes.string,
-  type: _react.PropTypes.string,
-  block: _react.PropTypes.any,
-  ripple: _react.PropTypes.any,
-  disabled: _react.PropTypes.any
+  children: _react.PropTypes.node
 };
 
-Button.defaultProps = {
-  node: 'a'
-};
-
-exports.default = Button;
+exports.default = ItemHeader;

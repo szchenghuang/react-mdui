@@ -8,9 +8,15 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
+
+var _glamor = require('glamor');
 
 var _classnames = require('classnames');
 
@@ -26,56 +32,73 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Icon = function (_React$PureComponent) {
-  _inherits(Icon, _React$PureComponent);
+var Item = function (_React$Component) {
+  _inherits(Item, _React$Component);
 
-  function Icon() {
-    _classCallCheck(this, Icon);
+  function Item(props) {
+    _classCallCheck(this, Item);
 
-    return _possibleConstructorReturn(this, (Icon.__proto__ || Object.getPrototypeOf(Icon)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Item.__proto__ || Object.getPrototypeOf(Item)).call(this, props));
+
+    _this.onToggle = function () {
+      var open = !_this.state.open;
+
+      _this.setState({ open: open });
+      _this.props.onToggle(open);
+    };
+
+    _this.state = {
+      open: props.open || props.defaultOpen
+    };
+    return _this;
   }
 
-  _createClass(Icon, [{
+  _createClass(Item, [{
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       var _props = this.props,
+          style = _props.style,
           className = _props.className,
-          textColor = _props.textColor,
-          color = _props.color,
-          iconJustify = _props.iconJustify,
-          materialIcon = _props.materialIcon,
-          icon = _props.icon;
+          children = _props.children;
 
 
       var clx = (0, _classnames2.default)(_extends({}, className && _defineProperty({}, className, true), {
-        'mdui-icon': true,
-        'mdui-icon-left': 'left' === iconJustify,
-        'mdui-icon-right': 'right' === iconJustify,
-        'material-icons': !!materialIcon
-      }, icon && _defineProperty({}, icon, true), textColor && _defineProperty({}, textColor, true), color && _defineProperty({}, color, true)));
+        'mdui-panel-item': true,
+        'mdui-panel-item-open': !!this.state.open
+      }));
+
+      var props = _extends({}, undefined === this.props.open && { onClick: this.onToggle });
 
       return _react2.default.createElement(
-        'i',
-        { className: clx },
-        materialIcon
+        'div',
+        _extends({}, (0, _glamor.css)(style), {
+          ref: function ref(node) {
+            return _this2.root = node;
+          },
+          className: clx
+        }, props),
+        children
       );
     }
   }]);
 
-  return Icon;
-}(_react2.default.PureComponent);
+  return Item;
+}(_react2.default.Component);
 
-Icon.propTypes = {
+Item.propTypes = {
+  style: _react.PropTypes.object,
   className: _react.PropTypes.string,
-  materialIcon: _react.PropTypes.string,
-  icon: _react.PropTypes.string,
-  textColor: _react.PropTypes.string,
-  color: _react.PropTypes.string,
-  iconJustify: _react.PropTypes.string
+  children: _react.PropTypes.node,
+  open: _react.PropTypes.any,
+  defaultOpen: _react.PropTypes.any,
+  onToggle: _react.PropTypes.func
 };
 
-Icon.defaultProps = {
-  iconJustify: 'left'
+Item.defaultProps = {
+  defaultOpen: false,
+  onToggle: _lodash2.default.noop
 };
 
-exports.default = Icon;
+exports.default = Item;
