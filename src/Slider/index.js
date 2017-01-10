@@ -20,6 +20,7 @@ class Slider extends React.PureComponent {
       step,
       min,
       max,
+      defaultValue,
       value,
       disabled
     } = this.props;
@@ -35,6 +36,7 @@ class Slider extends React.PureComponent {
       step,
       min,
       max,
+      defaultValue,
       value,
       ...( disabled && { disabled: true } ),
       onChange: event => this.props.onChange( event.target.value )
@@ -48,7 +50,7 @@ class Slider extends React.PureComponent {
       >
         <input
           ref={ node => this.input = node }
-          { ...props }/>
+          { ...props } />
       </label>
     );
   }
@@ -61,6 +63,7 @@ Slider.propTypes = {
   step: PropTypes.number,
   min: PropTypes.number,
   max: PropTypes.number,
+  defaultValue: PropTypes.number,
   value: PropTypes.number,
   disabled: PropTypes.any,
   onChange: PropTypes.func
@@ -70,7 +73,6 @@ Slider.defaultProps = {
   step: 1,
   min: 0,
   max: 100,
-  value: 0,
   onChange: _.noop
 };
 
