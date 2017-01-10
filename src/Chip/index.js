@@ -5,6 +5,7 @@ import React, { PropTypes } from 'react';
 import { css } from 'glamor';
 import ClassNames from 'classnames';
 
+import Icon from './Icon';
 import Title from './Title';
 
 class Chip extends React.PureComponent {
@@ -12,9 +13,12 @@ class Chip extends React.PureComponent {
     const {
       style,
       className,
+      styleIcon,
+      classNameIcon,
       styleTitle,
       classNameTitle,
       icon,
+      iconSrc,
       title,
       delete: showDelete,
       onClickDelete
@@ -31,7 +35,20 @@ class Chip extends React.PureComponent {
         { ...css( style ) }
         className={ clx }
       >
-        { icon }
+        { icon && (
+          <Icon
+            style={ styleIcon }
+            className={ classNameIcon }
+          >
+            { icon }
+          </Icon>
+        )}
+        { iconSrc && (
+          <Icon
+            style={ styleIcon }
+            className={ classNameIcon }
+            src={ iconSrc } />
+        )}
         { title && (
           <Title
             style={ styleTitle }
@@ -54,9 +71,12 @@ class Chip extends React.PureComponent {
 Chip.propTypes = {
   style: PropTypes.object,
   className: PropTypes.string,
+  styleIcon: PropTypes.object,
+  classNameIcon: PropTypes.string,
   styleTitle: PropTypes.object,
   classNameTitle: PropTypes.string,
   icon: PropTypes.node,
+  iconSrc: PropTypes.string,
   title: PropTypes.string,
   delete: PropTypes.any,
   onClickDelete: PropTypes.func
