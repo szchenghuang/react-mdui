@@ -75,6 +75,4 @@ Title.propTypes = {
   title: _react.PropTypes.string
 };
 
-Title.defaultProps = {};
-
 exports.default = Title;

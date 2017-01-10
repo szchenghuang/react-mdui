@@ -1,6 +1,7 @@
 var Path = require('path');
 var Webpack = require('webpack');
 var HTMLWebpackPlugin = require('html-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const PATHS = {
   lib: Path.join(__dirname, '../dist'),
@@ -36,7 +37,7 @@ const config = {
       loaders: [ 'style-loader', 'css-loader' ],
       include: [ PATHS.lib, PATHS.src, PATHS.node_modules ]
     }, {
-      test: /\.(jpe?g|png|gif|svg)$/i,
+      test: /\.(jpe?g|png|gif|svg)$/,
       loaders: [ 'url-loader?limit=8192' ],
       include: [ PATHS.lib, PATHS.src ]
     }, {
@@ -51,7 +52,10 @@ const config = {
     new HTMLWebpackPlugin({
       filename: 'index.html',
       template: Path.join( PATHS.src, 'index.html' )
-    })
+    }),
+    new CopyWebpackPlugin([
+      { from: Path.join( PATHS.src, 'img' ), to: Path.join( PATHS.build, 'img' ) }
+    ])
   ]
 };
 

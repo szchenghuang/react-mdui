@@ -117,6 +117,7 @@ Button.propTypes = {
 Button.defaultProps = {
   node: 'a',
   flat: true,
+  ripple: true,
   onClick: _lodash2.default.noop
 };
 

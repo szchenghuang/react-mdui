@@ -23,6 +23,10 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
+var _Icon = require('./Icon');
+
+var _Icon2 = _interopRequireDefault(_Icon);
+
 var _Title = require('./Title');
 
 var _Title2 = _interopRequireDefault(_Title);
@@ -54,9 +58,12 @@ var Chip = function (_React$PureComponent) {
       var _props = this.props,
           style = _props.style,
           className = _props.className,
+          styleIcon = _props.styleIcon,
+          classNameIcon = _props.classNameIcon,
           styleTitle = _props.styleTitle,
           classNameTitle = _props.classNameTitle,
           icon = _props.icon,
+          iconSrc = _props.iconSrc,
           title = _props.title,
           showDelete = _props.delete,
           onClickDelete = _props.onClickDelete;
@@ -75,7 +82,18 @@ var Chip = function (_React$PureComponent) {
         }, (0, _glamor.css)(style), {
           className: clx
         }),
-        icon,
+        icon && _react2.default.createElement(
+          _Icon2.default,
+          {
+            style: styleIcon,
+            className: classNameIcon
+          },
+          icon
+        ),
+        iconSrc && _react2.default.createElement(_Icon2.default, {
+          style: styleIcon,
+          className: classNameIcon,
+          src: iconSrc }),
         title && _react2.default.createElement(_Title2.default, {
           style: styleTitle,
           className: classNameTitle,
@@ -102,9 +120,12 @@ var Chip = function (_React$PureComponent) {
 Chip.propTypes = {
   style: _react.PropTypes.object,
   className: _react.PropTypes.string,
+  styleIcon: _react.PropTypes.object,
+  classNameIcon: _react.PropTypes.string,
   styleTitle: _react.PropTypes.object,
   classNameTitle: _react.PropTypes.string,
   icon: _react.PropTypes.node,
+  iconSrc: _react.PropTypes.string,
   title: _react.PropTypes.string,
   delete: _react.PropTypes.any,
   onClickDelete: _react.PropTypes.func

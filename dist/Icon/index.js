@@ -76,8 +76,4 @@ Icon.propTypes = {
   materialIcon: _react.PropTypes.string
 };
 
-Icon.defaultProps = {
-  left: true
-};
-
 exports.default = Icon;

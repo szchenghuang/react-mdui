@@ -28,6 +28,6 @@ flat      | any    | true    | a flat button
 raised    | any    |         | a raised button
 icon      | any    |         | an icon button
 block     | any    |         | set `width` to `100%` and `display` to `block`
-ripple    | any    |         | ripple effect
+ripple    | any    | true    | ripple effect
 disabled  | any    |         | disable this button
 onClick   | func   |         | callback on mouse clicks

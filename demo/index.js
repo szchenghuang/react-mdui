@@ -9,7 +9,8 @@
 //#############################################################################
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Button, Chip, Icon } from '../';
+import ReactDOMServer from 'react-dom/server';
+import Example from './Example';
 
 //#############################################################################
 // Application includes.
@@ -18,10 +19,14 @@ import { Button, Chip, Icon } from '../';
 //#############################################################################
 // Constants.
 //#############################################################################
-
-//#############################################################################
-// Inline styles.
-//#############################################################################
+const Examples = props => (
+  <div>
+    <h3>{ props.label }</h3>
+    { props.examples.map( ( example, index ) => (
+      <Example key={ index } { ...example } />
+    ))}
+  </div>
+);
 
 //#############################################################################
 // React components.
@@ -31,24 +36,11 @@ const App = React.createClass({
     return (
       <div>
         <h1>react-mdui</h1>
-        <h3>Components</h3>
-        <h4>Button</h4>
-        <Button
-          node="button"
-          raised
-          ripple
-        >
-          This is a button
-        </Button>
-        <h4>Icon</h4>
-        <Chip
-          icon={ <Icon materialIcon="&#xe87c;" /> }
-          title="Click Me"
-          delete
-          onClickDelete={ function() { console.log( 'delete' ) } }
-        >
-          This is a chip
-        </Chip>
+        <h2>Components</h2>
+        <Examples label="Button" examples={ require( './Button' ).default } />
+        <Examples label="Chip" examples={ require( './Chip' ).default } />
+        <Examples label="Icon" examples={ require( './Button' ).default } />
+        <Examples label="Slider" examples={ require( './Slider' ).default } />
       </div>
     );
   }
