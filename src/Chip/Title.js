@@ -35,7 +35,4 @@ Title.propTypes = {
   title: PropTypes.string
 };
 
-Title.defaultProps = {
-};
-
 export default Title;

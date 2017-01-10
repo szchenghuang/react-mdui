@@ -41,8 +41,4 @@ Icon.propTypes = {
   materialIcon: PropTypes.string
 };
 
-Icon.defaultProps = {
-  left: true
-};
-
 export default Icon;
