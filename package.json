@@ -11,11 +11,12 @@
   ],
   "license": "MIT",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint src",
+    "lint": "./node_modules/.bin/eslint src --cache",
     "build": "rm -rf dist && mkdir dist && babel ./src --out-dir ./dist",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild:demo": "rm -rf docs && mkdir docs",
-    "build:demo": "./node_modules/.bin/webpack --config ./demo/webpack.config.js"
+    "build:demo": "./node_modules/.bin/webpack --config ./demo/webpack.config.js",
+    "dev": "./node_modules/.bin/webpack-dev-server --devtool eval --progress --colors --hot --content-base docs/"
   },
   "homepage": "https://github.com/szchenghuang/react-mdui#readme",
   "repository": {
