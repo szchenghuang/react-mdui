@@ -8,6 +8,10 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -50,11 +54,13 @@ var ItemActions = function (_React$PureComponent) {
         'mdui-panel-item-actions': true
       }));
 
+      var props = _lodash2.default.omit(this.props, ['style', 'className', 'children']);
+
       return _react2.default.createElement(
         'div',
         _extends({}, (0, _glamor.css)(style), {
           className: clx
-        }),
+        }, props),
         children
       );
     }

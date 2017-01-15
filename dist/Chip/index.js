@@ -73,6 +73,8 @@ var Chip = function (_React$PureComponent) {
         'mdui-chip': true
       }));
 
+      var props = _lodash2.default.omit(this.props, ['style', 'className', 'children', 'styleIcon', 'classNameIcon', 'styleTitle', 'classNameTitle', 'icon', 'iconSrc', 'title', 'delete', 'onClickDelete']);
+
       return _react2.default.createElement(
         'div',
         _extends({
@@ -81,7 +83,7 @@ var Chip = function (_React$PureComponent) {
           }
         }, (0, _glamor.css)(style), {
           className: clx
-        }),
+        }, props),
         icon && _react2.default.createElement(
           _Icon2.default,
           {
@@ -120,6 +122,7 @@ var Chip = function (_React$PureComponent) {
 Chip.propTypes = {
   style: _react.PropTypes.object,
   className: _react.PropTypes.string,
+  children: _react.PropTypes.node,
   styleIcon: _react.PropTypes.object,
   classNameIcon: _react.PropTypes.string,
   styleTitle: _react.PropTypes.object,

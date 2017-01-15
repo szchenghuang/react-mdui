@@ -91,7 +91,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  node: 'a',
+  node: 'button',
   flat: true,
   ripple: true,
   onClick: _.noop

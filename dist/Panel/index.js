@@ -9,6 +9,10 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -16,6 +20,8 @@ var _react2 = _interopRequireDefault(_react);
 var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
+
+var _glamor = require('glamor');
 
 var _index = require('../index');
 
@@ -79,6 +85,7 @@ var Panel = function (_React$PureComponent) {
       var _this2 = this;
 
       var _props = this.props,
+          style = _props.style,
           className = _props.className,
           children = _props.children,
           gapless = _props.gapless,
@@ -91,15 +98,19 @@ var Panel = function (_React$PureComponent) {
         'mdui-panel-popout': !!popout
       }));
 
+      var props = _lodash2.default.omit(this.props, ['style', 'className', 'children', 'options', 'gapless', 'popout']);
+
       return _react2.default.createElement(
         'div',
-        {
+        _extends({
           ref: function ref(node) {
             return _this2.root = node;
-          },
-          className: clx,
+          }
+        }, (0, _glamor.css)(style), {
+          className: clx
+        }, props, {
           'data-mdui-panel': true
-        },
+        }),
         children
       );
     }
@@ -109,14 +120,13 @@ var Panel = function (_React$PureComponent) {
 }(_react2.default.PureComponent);
 
 Panel.propTypes = {
+  style: _react.PropTypes.object,
   className: _react.PropTypes.string,
   children: _react.PropTypes.node,
   options: _react.PropTypes.object,
   gapless: _react.PropTypes.any,
   popout: _react.PropTypes.any
 };
-
-Panel.defaultProps = {};
 
 exports.default = Panel;
 exports.Item = _Item2.default;

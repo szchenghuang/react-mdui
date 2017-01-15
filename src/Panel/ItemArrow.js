@@ -1,5 +1,6 @@
 'use strict';
 
+import _ from 'lodash';
 import React, { PropTypes } from 'react';
 import { css } from 'glamor';
 import ClassNames from 'classnames';
@@ -8,7 +9,8 @@ class ItemArrow extends React.PureComponent {
   render() {
     const {
       style,
-      className
+      className,
+      children
     } = this.props;
 
     const clx = ClassNames({
@@ -18,12 +20,15 @@ class ItemArrow extends React.PureComponent {
       'material-icons': true
     });
 
+    const props = _.omit( this.props, [ 'style', 'className', 'children' ] );
+
     return (
       <i
         { ...css( style ) }
         className={ clx }
+        { ...props }
       >
-        &#xe313;
+        { children || '&#xe313' }
       </i>
     );
   }
@@ -31,7 +36,8 @@ class ItemArrow extends React.PureComponent {
 
 ItemArrow.propTypes = {
   style: PropTypes.object,
-  className: PropTypes.string
+  className: PropTypes.string,
+  children: PropTypes.node
 };
 
 export default ItemArrow;

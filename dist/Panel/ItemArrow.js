@@ -8,6 +8,10 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -42,7 +46,8 @@ var ItemArrow = function (_React$PureComponent) {
     value: function render() {
       var _props = this.props,
           style = _props.style,
-          className = _props.className;
+          className = _props.className,
+          children = _props.children;
 
 
       var clx = (0, _classnames2.default)(_extends({}, className && _defineProperty({}, className, true), {
@@ -51,12 +56,14 @@ var ItemArrow = function (_React$PureComponent) {
         'material-icons': true
       }));
 
+      var props = _lodash2.default.omit(this.props, ['style', 'className', 'children']);
+
       return _react2.default.createElement(
         'i',
         _extends({}, (0, _glamor.css)(style), {
           className: clx
-        }),
-        '\uE313'
+        }, props),
+        children || '&#xe313'
       );
     }
   }]);
@@ -66,7 +73,8 @@ var ItemArrow = function (_React$PureComponent) {
 
 ItemArrow.propTypes = {
   style: _react.PropTypes.object,
-  className: _react.PropTypes.string
+  className: _react.PropTypes.string,
+  children: _react.PropTypes.node
 };
 
 exports.default = ItemArrow;

@@ -29,11 +29,16 @@ class Chip extends React.PureComponent {
       'mdui-chip': true
     });
 
+    const props = _.omit( this.props, [ 'style', 'className', 'children',
+      'styleIcon', 'classNameIcon', 'styleTitle', 'classNameTitle',
+      'icon', 'iconSrc', 'title', 'delete', 'onClickDelete' ] );
+
     return (
       <div
         ref={ node => this.root = node }
         { ...css( style ) }
         className={ clx }
+        { ...props }
       >
         { icon && (
           <Icon
@@ -71,6 +76,7 @@ class Chip extends React.PureComponent {
 Chip.propTypes = {
   style: PropTypes.object,
   className: PropTypes.string,
+  children: PropTypes.node,
   styleIcon: PropTypes.object,
   classNameIcon: PropTypes.string,
   styleTitle: PropTypes.object,

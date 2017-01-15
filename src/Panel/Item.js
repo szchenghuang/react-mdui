@@ -27,13 +27,14 @@ class Item extends React.Component {
     });
 
     const props = {
+      ...( _.omit( props, [ 'style', 'className', 'children', 'open', 'defaultOpen', 'onToggle' ] ) ),
       ...( undefined === this.props.open && { onClick: this.onToggle } )
     };
 
     return (
       <div
-        { ...css( style ) }
         ref={ node => this.root = node }
+        { ...css( style ) }
         className={ clx }
         { ...props }
       >

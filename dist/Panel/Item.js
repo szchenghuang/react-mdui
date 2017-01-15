@@ -69,14 +69,15 @@ var Item = function (_React$Component) {
         'mdui-panel-item-open': !!this.state.open
       }));
 
-      var props = _extends({}, undefined === this.props.open && { onClick: this.onToggle });
+      var props = _extends({}, _lodash2.default.omit(props, ['style', 'className', 'children', 'open', 'defaultOpen', 'onToggle']), undefined === this.props.open && { onClick: this.onToggle });
 
       return _react2.default.createElement(
         'div',
-        _extends({}, (0, _glamor.css)(style), {
+        _extends({
           ref: function ref(node) {
             return _this2.root = node;
-          },
+          }
+        }, (0, _glamor.css)(style), {
           className: clx
         }, props),
         children
