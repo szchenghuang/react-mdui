@@ -1,18 +1,17 @@
 'use strict';
 
-import _ from 'lodash';
 import React, { PropTypes } from 'react';
-import { css } from 'glamor';
 import ClassNames from 'classnames';
 
+import Delete from './Delete';
 import Icon from './Icon';
 import Title from './Title';
 
-class Chip extends React.PureComponent {
+class Chip extends React.Component {
   render() {
     const {
-      style,
       className,
+      children,
       styleIcon,
       classNameIcon,
       styleTitle,
@@ -21,7 +20,8 @@ class Chip extends React.PureComponent {
       iconSrc,
       title,
       delete: showDelete,
-      onClickDelete
+      onDelete,
+      ...restProps
     } = this.props;
 
     const clx = ClassNames({
@@ -29,17 +29,17 @@ class Chip extends React.PureComponent {
       'mdui-chip': true
     });
 
-    const props = _.omit( this.props, [ 'style', 'className', 'children',
-      'styleIcon', 'classNameIcon', 'styleTitle', 'classNameTitle',
-      'icon', 'iconSrc', 'title', 'delete', 'onClickDelete' ] );
+    const props = {
+      ...restProps,
+      className: clx
+    };
 
-    return (
-      <div
-        ref={ node => this.root = node }
-        { ...css( style ) }
-        className={ clx }
-        { ...props }
-      >
+    return children ? (
+      <div { ...props }>
+        { children }
+      </div>
+    ) : (
+      <div { ...props }>
         { icon && (
           <Icon
             style={ styleIcon }
@@ -61,12 +61,7 @@ class Chip extends React.PureComponent {
             title={ title } />
         )}
         { showDelete && (
-          <span
-            className="mdui-chip-delete"
-            onClick={ onClickDelete }
-          >
-            <i className="mdui-icon material-icons">&#xe5c9;</i>
-          </span>
+          <Delete onClick={ onDelete } />
         )}
       </div>
     );
@@ -85,12 +80,12 @@ Chip.propTypes = {
   iconSrc: PropTypes.string,
   title: PropTypes.string,
   delete: PropTypes.any,
-  onClickDelete: PropTypes.func
+  onDelete: PropTypes.func
 };
 
 Chip.defaultProps = {
-  onClickDelete: _.noop
+  onDelete: () => {}
 };
 
 export default Chip;
-export { Title };
+export { Delete, Icon, Title };

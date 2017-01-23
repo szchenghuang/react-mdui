@@ -1,15 +1,15 @@
 'use strict';
 
 import React, { PropTypes } from 'react';
-import { css } from 'glamor';
 import ClassNames from 'classnames';
 
-class Title extends React.PureComponent {
+class Title extends React.Component {
   render() {
     const {
-      style,
       className,
-      title
+      children,
+      title,
+      ...restProps
     } = this.props;
 
     const clx = ClassNames({
@@ -17,13 +17,14 @@ class Title extends React.PureComponent {
       'mdui-chip-title': true
     });
 
+    const props = {
+      ...restProps,
+      className: clx
+    };
+
     return (
-      <span
-        ref={ node => this.root = node }
-        { ...css( style ) }
-        className={ clx }
-      >
-        { title }
+      <span { ...props }>
+        { children || title }
       </span>
     );
   }
@@ -32,6 +33,7 @@ class Title extends React.PureComponent {
 Title.propTypes = {
   style: PropTypes.object,
   className: PropTypes.string,
+  children: PropTypes.node,
   title: PropTypes.string
 };
 

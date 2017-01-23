@@ -1,9 +1,7 @@
 'use strict';
 
-import _ from 'lodash';
 import React, { PropTypes } from 'react';
 import ClassNames from 'classnames';
-import { css } from 'glamor';
 
 import mdui from '../index';
 import Item from './Item';
@@ -14,37 +12,38 @@ import ItemArrow from './ItemArrow';
 import ItemBody from './ItemBody';
 import ItemActions from './ItemActions';
 
-class Panel extends React.PureComponent {
+class Panel extends React.Component {
   componentDidMount() {
-    mdui.Panel( this.root, this.props.options );
+    const { accordion } = this.props;
+    const options = { accordion: !!accordion };
+    new mdui.Panel( this.root, options );
   }
 
   render() {
     const {
-      style,
       className,
       children,
+      accordion,
       gapless,
-      popout
+      popout,
+      ...restProps
     } = this.props;
 
     const clx = ClassNames({
       ...( className && { [ className ]: true } ),
       'mdui-panel': true,
-      'mdui-panel-gapless': !!gapless,
-      'mdui-panel-popout': !!popout
+      'mdui-panel-gapless': gapless,
+      'mdui-panel-popout': popout
     });
 
-    const props = _.omit( this.props, [ 'style', 'className', 'children', 'options', 'gapless', 'popout' ] );
+    const props = {
+      ...restProps,
+      className: clx,
+      ref: node => this.root = node
+    };
 
     return (
-      <div
-        ref={ node => this.root = node }
-        { ...css( style ) }
-        className={ clx }
-        { ...props }
-        data-mdui-panel
-      >
+      <div { ...props }>
         { children }
       </div>
     );
@@ -55,7 +54,7 @@ Panel.propTypes = {
   style: PropTypes.object,
   className: PropTypes.string,
   children: PropTypes.node,
-  options: PropTypes.object,
+  accordion: PropTypes.any,
   gapless: PropTypes.any,
   popout: PropTypes.any
 };

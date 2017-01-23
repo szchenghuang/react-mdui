@@ -9,51 +9,75 @@ import {
   Icon,
   List, ListItem, ListItemContent, ListItemIcon
 } from '../dist';
+import Demos from './Demos';
 import Example from './Example';
 
 const Examples = props => (
-  <div>
+  <div className="mdui-container">
     <h3>{ props.label }</h3>
     { props.examples.map( ( example, index ) => (
-      <Example key={ index } { ...example } />
+      <Example key={ props.label + '-' + index } { ...example } />
     ))}
   </div>
 );
 
 const App = React.createClass({
+  getInitialState() {
+    return {
+      component: 'Button'
+    };
+  },
   render() {
+    const { component } = this.state;
+
     return (
       <div>
         <Drawer scrollBar open>
-          <List>
+          <Collapse>
             <CollapseItem>
               <CollapseItemHeader>
-                <ListItem>
-                  <ListItemContent>react-mdui</ListItemContent>
-                </ListItem>
+                <List>
+                  <ListItem>
+                    <ListItemContent>react-mdui</ListItemContent>
+                  </ListItem>
+                </List>
               </CollapseItemHeader>
             </CollapseItem>
-            <CollapseItem>
+            <CollapseItem
+              defaultOpen
+              onToggle={ this.onClickComponents }
+            >
               <CollapseItemHeader>
-                <ListItem>
-                  <ListItemIcon>widgets</ListItemIcon>
-                  <ListItemContent>Components</ListItemContent>
-                  <CollapseItemArrow />
-                </ListItem>
+                <List>
+                  <ListItem>
+                    <ListItemIcon materialIcon="&#xe1bd;" />
+                    <ListItemContent>Components</ListItemContent>
+                    <CollapseItemArrow />
+                  </ListItem>
+                </List>
               </CollapseItemHeader>
               <CollapseItemBody ripple>
-                <ListItem ripple>Button</ListItem>
-                <ListItem ripple>Chip</ListItem>
+                <List>
+                  <ListItem ripple onClick={ event => this.onClickComponent( event, 'Button' ) }>Button</ListItem>
+                  <ListItem ripple onClick={ event => this.onClickComponent( event, 'Chip' ) }>Chip</ListItem>
+                  <ListItem ripple onClick={ event => this.onClickComponent( event, 'Collapse' ) }>Collapse</ListItem>
+                  <ListItem ripple onClick={ event => this.onClickComponent( event, 'Drawer' ) }>Drawer</ListItem>
+                  <ListItem ripple onClick={ event => this.onClickComponent( event, 'Icon' ) }>Icon</ListItem>
+                  <ListItem ripple onClick={ event => this.onClickComponent( event, 'List' ) }>List</ListItem>
+                  <ListItem ripple onClick={ event => this.onClickComponent( event, 'Panel' ) }>Panel</ListItem>
+                  <ListItem ripple onClick={ event => this.onClickComponent( event, 'Slider' ) }>Slider</ListItem>
+                </List>
               </CollapseItemBody>
             </CollapseItem>
-          </List>
+          </Collapse>
         </Drawer>
-        <Examples label="Button" examples={ require( './Button' ).default } />
-        <Examples label="Chip" examples={ require( './Chip' ).default } />
-        <Examples label="Icon" examples={ require( './Button' ).default } />
-        <Examples label="Slider" examples={ require( './Slider' ).default } />
+        <Examples label={ component } examples={ Demos[ component ] } />
       </div>
     );
+  },
+  onClickComponent( event, component ) {
+    event.stopPropagation();
+    this.setState( { component } );
   }
 });
 

@@ -9,15 +9,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _lodash = require('lodash');
-
-var _lodash2 = _interopRequireDefault(_lodash);
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
-
-var _glamor = require('glamor');
 
 var _classnames = require('classnames');
 
@@ -47,14 +41,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Collapse = function (_React$PureComponent) {
-  _inherits(Collapse, _React$PureComponent);
+var Collapse = function (_React$Component) {
+  _inherits(Collapse, _React$Component);
 
   function Collapse() {
     _classCallCheck(this, Collapse);
@@ -65,7 +61,10 @@ var Collapse = function (_React$PureComponent) {
   _createClass(Collapse, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      new _index2.default.Collapse(this.root, this.props.options);
+      var accordion = this.props.accordion;
+
+      var options = { accordion: !!accordion };
+      new _index2.default.Collapse(this.root, options);
     }
   }, {
     key: 'render',
@@ -73,41 +72,38 @@ var Collapse = function (_React$PureComponent) {
       var _this2 = this;
 
       var _props = this.props,
-          style = _props.style,
           className = _props.className,
-          children = _props.children;
-
+          children = _props.children,
+          accordion = _props.accordion,
+          restProps = _objectWithoutProperties(_props, ['className', 'children', 'accordion']);
 
       var clx = (0, _classnames2.default)(_extends({}, className && _defineProperty({}, className, true), {
         'mdui-collapse': true
       }));
 
-      var props = _lodash2.default.omit(this.props, ['style', 'className', 'children', 'options']);
+      var props = _extends({}, restProps, {
+        className: clx,
+        ref: function ref(node) {
+          return _this2.root = node;
+        }
+      });
 
       return _react2.default.createElement(
         'div',
-        _extends({
-          ref: function ref(node) {
-            return _this2.root = node;
-          }
-        }, (0, _glamor.css)(style), {
-          className: clx
-        }, props, {
-          'data-mdui-collapse': true
-        }),
+        props,
         children
       );
     }
   }]);
 
   return Collapse;
-}(_react2.default.PureComponent);
+}(_react2.default.Component);
 
 Collapse.propTypes = {
   style: _react.PropTypes.object,
   className: _react.PropTypes.string,
   children: _react.PropTypes.node,
-  options: _react.PropTypes.object
+  accordion: _react.PropTypes.any
 };
 
 exports.default = Collapse;

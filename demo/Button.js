@@ -3,13 +3,11 @@
 //#############################################################################
 // Stylesheets.
 //#############################################################################
-import Styles from './styles';
 
 //#############################################################################
 // Library includes.
 //#############################################################################
 import React from 'react';
-import { css } from 'glamor';
 import { Button, Icon } from '../';
 
 //#############################################################################
@@ -21,31 +19,60 @@ import { Button, Icon } from '../';
 //#############################################################################
 const examples = [
   {
-    label: 'Flat button',
-    demo: <Button node="button">button</Button>
-  },
-  {
-    label: 'Raised button',
-    demo: <Button node="button" raised>button</Button>
-  },
-  {
-    label: 'Icon button',
+    label: 'Flat buttons',
     demo: (
       <div>
-        <div style={ { display: 'inline-block' } }>
-          <Button node="button" icon><Icon materialIcon="&#xe145;" /></Button>
-        </div>
-        <div style={ { display: 'inline-block' } }>
-          <Button node="button"><Icon materialIcon="&#xe80d;" right/> Share</Button>
-        </div>
-        <div style={ { display: 'inline-block' } }>
-          <Button node="button"><Icon materialIcon="&#xe80d;" left/> Share</Button>
-        </div>
-        <div style={ { display: 'inline-block' } }>
-          <Button node="button" disabled><Icon materialIcon="&#xe80d;" left/> Share</Button>
-        </div>
+        <p>
+          <Button>button</Button>
+        </p>
+        <p>
+          <Button disabled>disabled</Button>
+        </p>
       </div>
-    )
+    ),
+    code:
+`<Button>button</Button>
+<Button disabled>disabled</Button>`
+  },
+  {
+    label: 'Raised buttons',
+    demo: (
+      <div>
+        <p>
+          <Button raised>button</Button>
+        </p>
+        <p>
+          <Button raised disabled>disabled</Button>
+        </p>
+      </div>
+    ),
+    code:
+`<Button raised>button</Button>
+<Button raised disabled>disabled</Button>`
+  },
+  {
+    label: 'Icon buttons',
+    demo: (
+      <div>
+        <p>
+          <Button icon><Icon materialIcon="add" /></Button>
+        </p>
+        <p>
+          <Button><Icon materialIcon="share" right/> Share</Button>
+        </p>
+        <p>
+          <Button><Icon materialIcon="share" left/> Share</Button>
+        </p>
+        <p>
+          <Button disabled><Icon materialIcon="share" left/> Share</Button>
+        </p>
+      </div>
+    ),
+    code:
+`<Button icon><Icon materialIcon="add" /></Button>
+<Button><Icon materialIcon="share" right /> Share</Button>
+<Button><Icon materialIcon="share" left /> Share</Button>
+<Button disabled><Icon materialIcon="share" left /> Share</Button>`
   }
 ];
 

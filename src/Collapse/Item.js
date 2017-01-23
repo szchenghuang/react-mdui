@@ -1,53 +1,47 @@
 'use strict';
 
-import _ from 'lodash';
 import React, { PropTypes } from 'react';
-import { css } from 'glamor';
 import ClassNames from 'classnames';
 
 class Item extends React.Component {
   constructor( props ) {
     super( props );
     this.state = {
-      open: props.open || props.defaultOpen
+      open: props.defaultOpen
     };
   }
 
   render() {
     const {
-      style,
       className,
-      children
+      children,
+      defaultOpen,
+      onToggle,
+      ...restProps
     } = this.props;
 
     const clx = ClassNames({
       ...( className && { [ className ]: true } ),
       'mdui-collapse-item': true,
-      'mdui-collapse-item-open': !!this.state.open
+      'mdui-collapse-item-open': this.state.open
     });
 
     const props = {
-      ...( _.omit( props, [ 'style', 'className', 'children', 'open', 'defaultOpen', 'onToggle' ] ) ),
-      ...( undefined === this.props.open && { onClick: this.onToggle } )
+      ...restProps,
+      className: clx,
+      onClick: this.onToggle
     };
 
     return (
-      <div
-        ref={ node => this.root = node }
-        { ...css( style ) }
-        className={ clx }
-        { ...props }
-      >
+      <div { ...props }>
         { children }
       </div>
     );
   }
 
   onToggle = () => {
-    const open = !this.state.open;
-
-    this.setState({ open });
-    this.props.onToggle( open );
+    this.setState( { open: !this.state.open } );
+    this.props.onToggle();
   }
 }
 
@@ -55,14 +49,13 @@ Item.propTypes = {
   style: PropTypes.object,
   className: PropTypes.string,
   children: PropTypes.node,
-  open: PropTypes.any,
   defaultOpen: PropTypes.any,
   onToggle: PropTypes.func
 };
 
 Item.defaultProps = {
   defaultOpen: false,
-  onToggle: _.noop
+  onToggle: () => {}
 };
 
 export default Item;

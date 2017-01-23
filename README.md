@@ -9,7 +9,7 @@
 
 ## Demo ##
 
-[Demo][demo] is a preview rendered with react-mdui components.
+[Demo][demo] is a preview application for your reference.
 
 ## Install ##
 
@@ -22,13 +22,12 @@ npm install react-mdui --save
 Take `Button` for example:
 
 ```sh
-import Button from 'react-mdui/Button';
 import { Button } from 'react-mdui';
 
 const button = (
   <Button
     node="button"
-    type="raised"
+    raised
     block
     ripple
     disabled
@@ -49,9 +48,14 @@ import Button from 'react-mdui/Button';
 
 * [Button][Button]
 * [Chip][Chip]
+* [Collapse][Collapse]
+* [Divider][Divider]
+* [Drawer][Drawer]
 * [Icon][Icon]
+* [List][List]
 * [Panel][Panel]
 * [Slider][Slider]
+* [Subheader][Subheader]
 
 ## License ##
 
@@ -60,9 +64,14 @@ MIT. See [LICENSE.md](http://github.com/szchenghuang/react-mdui/blob/master/LICE
 [mdui]: https://github.com/zdhxiong/mdui
 [Button]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Button.md
 [Chip]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Chip.md
+[Collapse]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Collapse.md
+[Divider]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Divider.md
+[Drawer]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Drawer.md
 [Icon]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Icon.md
+[List]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/List.md
 [Panel]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Panel.md
 [Slider]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Slider.md
+[Subheader]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Subheader.md
 
 [demo]: https://szchenghuang.github.io/react-mdui/
 

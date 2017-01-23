@@ -1,8 +1,6 @@
 'use strict';
 
-import _ from 'lodash';
 import React, { PropTypes } from 'react';
-import { css } from 'glamor';
 import ClassNames from 'classnames';
 
 import mdui from '../index';
@@ -11,16 +9,19 @@ import ItemArrow from './ItemArrow';
 import ItemBody from './ItemBody';
 import ItemHeader from './ItemHeader';
 
-class Collapse extends React.PureComponent {
+class Collapse extends React.Component {
   componentDidMount() {
-    new mdui.Collapse( this.root, this.props.options );
+    const { accordion } = this.props;
+    const options = { accordion: !!accordion };
+    new mdui.Collapse( this.root, options );
   }
 
   render() {
     const {
-      style,
       className,
-      children
+      children,
+      accordion,
+      ...restProps
     } = this.props;
 
     const clx = ClassNames({
@@ -28,16 +29,14 @@ class Collapse extends React.PureComponent {
       'mdui-collapse': true
     });
 
-    const props = _.omit( this.props, [ 'style', 'className', 'children', 'options' ] );
+    const props = {
+      ...restProps,
+      className: clx,
+      ref: node => this.root = node
+    };
 
     return (
-      <div
-        ref={ node => this.root = node }
-        { ...css( style ) }
-        className={ clx }
-        { ...props }
-        data-mdui-collapse
-      >
+      <div { ...props }>
         { children }
       </div>
     );
@@ -48,7 +47,7 @@ Collapse.propTypes = {
   style: PropTypes.object,
   className: PropTypes.string,
   children: PropTypes.node,
-  options: PropTypes.object
+  accordion: PropTypes.any
 };
 
 export default Collapse;
@@ -56,5 +55,5 @@ export {
   Item,
   ItemArrow,
   ItemBody,
-  ItemHeader
+  ItemHeader,
 };

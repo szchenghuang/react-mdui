@@ -1,8 +1,6 @@
 'use strict';
 
-import _ from 'lodash';
 import React, { PropTypes } from 'react';
-import { css } from 'glamor';
 import ClassNames from 'classnames';
 
 import Item from './Item';
@@ -12,13 +10,13 @@ import ItemIcon from './ItemIcon';
 import ItemText from './ItemText';
 import ItemTitle from './ItemTitle';
 
-class List extends React.PureComponent {
+class List extends React.Component {
   render() {
     const {
-      style,
       className,
       children,
-      dense
+      dense,
+      ...restProps
     } = this.props;
 
     const clx = ClassNames({
@@ -27,15 +25,13 @@ class List extends React.PureComponent {
       'mdui-list-dense': dense
     });
 
-    const props = _.omit( this.props, [ 'style', 'className', 'children', 'dense' ] );
+    const props = {
+      ...restProps,
+      className: clx
+    };
 
     return (
-      <ul
-        ref={ node => this.root = node }
-        { ...css( style ) }
-        className={ clx }
-        { ...props }
-      >
+      <ul { ...props }>
         { children }
       </ul>
     );

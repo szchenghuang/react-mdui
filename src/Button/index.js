@@ -1,50 +1,41 @@
 'use strict';
 
-import _ from 'lodash';
 import React, { PropTypes } from 'react';
-import { css } from 'glamor';
 import ClassNames from 'classnames';
 
-class Button extends React.PureComponent {
+class Button extends React.Component {
   render() {
     const {
-      style,
       className,
       children,
       node,
+      flat,
       raised,
       icon,
       block,
-      ripple
+      ripple,
+      disabled,
+      ...restProps
     } = this.props;
 
     const clx = ClassNames({
       ...( className && { [ className ]: true } ),
       'mdui-btn': true,
-      'mdui-btn-raised': !!raised,
-      'mdui-btn-icon': !!icon,
-      'mdui-btn-block': !!block,
-      'mdui-ripple': !!ripple
+      'mdui-btn-raised': raised,
+      'mdui-btn-icon': icon,
+      'mdui-btn-block': block,
+      'mdui-ripple': ripple
     });
 
-    const props = _.omit( this.props,
-      'style',
-      'className',
-      'node',
-      'flat',
-      'raised',
-      'icon',
-      'block',
-      'ripple'
-    );
+    const props = {
+      ...restProps,
+      className: clx,
+      ...( disabled && { disabled: true } )
+    };
 
     if ( 'a' === node ) {
       return (
-        <a
-          { ...css( style ) }
-          className={ clx }
-          { ...props }
-        >
+        <a { ...props }>
           { children }
         </a>
       );
@@ -52,11 +43,7 @@ class Button extends React.PureComponent {
 
     if ( 'button' === node ) {
       return (
-        <button
-          { ...css( style ) }
-          className={ clx }
-          { ...props }
-        >
+        <button { ...props }>
           { children }
         </button>
       );
@@ -64,11 +51,7 @@ class Button extends React.PureComponent {
 
     if ( 'input' === node ) {
       return (
-        <input
-          { ...css( style ) }
-          className={ clx }
-          { ...props }
-        >
+        <input { ...props }>
           { children }
         </input>
       );
@@ -94,7 +77,7 @@ Button.defaultProps = {
   node: 'button',
   flat: true,
   ripple: true,
-  onClick: _.noop
+  onClick: () => {}
 };
 
 export default Button;

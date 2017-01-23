@@ -8,15 +8,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _lodash = require('lodash');
-
-var _lodash2 = _interopRequireDefault(_lodash);
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
-
-var _glamor = require('glamor');
 
 var _classnames = require('classnames');
 
@@ -25,6 +19,8 @@ var _classnames2 = _interopRequireDefault(_classnames);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -40,46 +36,50 @@ var Item = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Item.__proto__ || Object.getPrototypeOf(Item)).call(this, props));
 
-    _this.onToggle = function () {
-      var open = !_this.state.open;
-
-      _this.setState({ open: open });
-      _this.props.onToggle(open);
-    };
-
     _this.state = {
-      open: props.open || props.defaultOpen
+      open: props.defaultOpen
     };
     return _this;
   }
 
   _createClass(Item, [{
-    key: 'render',
-    value: function render() {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
       var _this2 = this;
 
-      var _props = this.props,
-          style = _props.style,
-          className = _props.className,
-          children = _props.children;
+      this.root.addEventListener('opened.mdui.panel', function () {
+        _this2.setState({ open: true });
+      });
+      this.root.addEventListener('closed.mdui.panel', function () {
+        _this2.setState({ open: false });
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this3 = this;
 
+      var _props = this.props,
+          className = _props.className,
+          children = _props.children,
+          defaultOpen = _props.defaultOpen,
+          restProps = _objectWithoutProperties(_props, ['className', 'children', 'defaultOpen']);
 
       var clx = (0, _classnames2.default)(_extends({}, className && _defineProperty({}, className, true), {
         'mdui-panel-item': true,
-        'mdui-panel-item-open': !!this.state.open
+        'mdui-panel-item-open': this.state.open
       }));
 
-      var props = _extends({}, _lodash2.default.omit(props, ['style', 'className', 'children', 'open', 'defaultOpen', 'onToggle']), undefined === this.props.open && { onClick: this.onToggle });
+      var props = _extends({}, restProps, {
+        className: clx,
+        ref: function ref(node) {
+          return _this3.root = node;
+        }
+      });
 
       return _react2.default.createElement(
         'div',
-        _extends({
-          ref: function ref(node) {
-            return _this2.root = node;
-          }
-        }, (0, _glamor.css)(style), {
-          className: clx
-        }, props),
+        props,
         children
       );
     }
@@ -92,14 +92,11 @@ Item.propTypes = {
   style: _react.PropTypes.object,
   className: _react.PropTypes.string,
   children: _react.PropTypes.node,
-  open: _react.PropTypes.any,
-  defaultOpen: _react.PropTypes.any,
-  onToggle: _react.PropTypes.func
+  defaultOpen: _react.PropTypes.any
 };
 
 Item.defaultProps = {
-  defaultOpen: false,
-  onToggle: _lodash2.default.noop
+  defaultOpen: false
 };
 
 exports.default = Item;

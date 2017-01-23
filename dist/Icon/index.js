@@ -12,8 +12,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _glamor = require('glamor');
-
 var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
@@ -22,14 +20,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Icon = function (_React$PureComponent) {
-  _inherits(Icon, _React$PureComponent);
+var Icon = function (_React$Component) {
+  _inherits(Icon, _React$Component);
 
   function Icon() {
     _classCallCheck(this, Icon);
@@ -41,32 +41,33 @@ var Icon = function (_React$PureComponent) {
     key: 'render',
     value: function render() {
       var _props = this.props,
-          style = _props.style,
           className = _props.className,
           left = _props.left,
           right = _props.right,
-          materialIcon = _props.materialIcon;
-
+          materialIcon = _props.materialIcon,
+          restProps = _objectWithoutProperties(_props, ['className', 'left', 'right', 'materialIcon']);
 
       var clx = (0, _classnames2.default)(_extends({}, className && _defineProperty({}, className, true), {
         'mdui-icon': true,
-        'mdui-icon-left': !!left,
-        'mdui-icon-right': !!right,
-        'material-icons': !!materialIcon
+        'mdui-icon-left': left,
+        'mdui-icon-right': right,
+        'material-icons': materialIcon
       }));
+
+      var props = _extends({}, restProps, {
+        className: clx
+      });
 
       return _react2.default.createElement(
         'i',
-        _extends({}, (0, _glamor.css)(style), {
-          className: clx
-        }),
+        props,
         materialIcon
       );
     }
   }]);
 
   return Icon;
-}(_react2.default.PureComponent);
+}(_react2.default.Component);
 
 Icon.propTypes = {
   style: _react.PropTypes.object,

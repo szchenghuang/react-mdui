@@ -1,32 +1,33 @@
 'use strict';
 
 import React, { PropTypes } from 'react';
-import { css } from 'glamor';
 import ClassNames from 'classnames';
 
-class Icon extends React.PureComponent {
+class Icon extends React.Component {
   render() {
     const {
-      style,
       className,
       left,
       right,
-      materialIcon
+      materialIcon,
+      ...restProps
     } = this.props;
 
     const clx = ClassNames({
       ...( className && { [ className ]: true } ),
       'mdui-icon': true,
-      'mdui-icon-left': !!left,
-      'mdui-icon-right': !!right,
-      'material-icons': !!materialIcon
+      'mdui-icon-left': left,
+      'mdui-icon-right': right,
+      'material-icons': materialIcon
     });
 
+    const props = {
+      ...restProps,
+      className: clx
+    };
+
     return (
-      <i
-        { ...css( style ) }
-        className={ clx }
-      >
+      <i { ...props }>
         { materialIcon }
       </i>
     );

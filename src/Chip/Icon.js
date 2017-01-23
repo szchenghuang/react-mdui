@@ -1,16 +1,15 @@
 'use strict';
 
 import React, { PropTypes } from 'react';
-import { css } from 'glamor';
 import ClassNames from 'classnames';
 
-class Icon extends React.PureComponent {
+class Icon extends React.Component {
   render() {
     const {
-      style,
       className,
       children,
-      src
+      src,
+      ...restProps
     } = this.props;
 
     const clx = ClassNames({
@@ -18,18 +17,18 @@ class Icon extends React.PureComponent {
       'mdui-chip-icon': true
     });
 
+    const props = {
+      ...restProps,
+      className: clx,
+      ...( src && { src } )
+    };
+
     return src ? (
-      <img
-        ref={ node => this.root = node }
-        { ...css( style ) }
-        className={ clx }
-        src={ src } />
+      <img { ...props }>
+        { children }
+      </img>
     ) : (
-      <span
-        ref={ node => this.root = node }
-        { ...css( style ) }
-        className={ clx }
-      >
+      <span { ...props }>
         { children }
       </span>
     );

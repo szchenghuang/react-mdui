@@ -17,9 +17,11 @@ import Collapse, {
   Item as CollapseItem,
   ItemArrow as CollapseItemArrow,
   ItemBody as CollapseItemBody,
-  ItemHeader as CollapseItemHeader
+  ItemHeader as CollapseItemHeader,
+  ItemUncontrolled as CollapseItemUncontrolled
 } from './Collapse';
 import Icon from './Icon';
+import Divider from './Divider';
 import Drawer from './Drawer';
 import List, {
   Item as ListItem,
@@ -39,6 +41,7 @@ import Panel, {
   ItemActions as PanelItemActions
 } from './Panel';
 import Slider from './Slider';
+import Subheader from './Subheader';
 
 //#############################################################################
 // Exports.
@@ -54,6 +57,8 @@ export {
   CollapseItemArrow,
   CollapseItemBody,
   CollapseItemHeader,
+  CollapseItemUncontrolled,
+  Divider,
   Drawer,
   Icon,
   List,
@@ -71,5 +76,6 @@ export {
   PanelItemArrow,
   PanelItemBody,
   PanelItemActions,
-  Slider
+  Slider,
+  Subheader
 };

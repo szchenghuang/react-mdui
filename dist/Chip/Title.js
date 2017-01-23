@@ -12,8 +12,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _glamor = require('glamor');
-
 var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
@@ -22,14 +20,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Title = function (_React$PureComponent) {
-  _inherits(Title, _React$PureComponent);
+var Title = function (_React$Component) {
+  _inherits(Title, _React$Component);
 
   function Title() {
     _classCallCheck(this, Title);
@@ -40,38 +40,35 @@ var Title = function (_React$PureComponent) {
   _createClass(Title, [{
     key: 'render',
     value: function render() {
-      var _this2 = this;
-
       var _props = this.props,
-          style = _props.style,
           className = _props.className,
-          title = _props.title;
-
+          children = _props.children,
+          title = _props.title,
+          restProps = _objectWithoutProperties(_props, ['className', 'children', 'title']);
 
       var clx = (0, _classnames2.default)(_extends({}, className && _defineProperty({}, className, true), {
         'mdui-chip-title': true
       }));
 
+      var props = _extends({}, restProps, {
+        className: clx
+      });
+
       return _react2.default.createElement(
         'span',
-        _extends({
-          ref: function ref(node) {
-            return _this2.root = node;
-          }
-        }, (0, _glamor.css)(style), {
-          className: clx
-        }),
-        title
+        props,
+        children || title
       );
     }
   }]);
 
   return Title;
-}(_react2.default.PureComponent);
+}(_react2.default.Component);
 
 Title.propTypes = {
   style: _react.PropTypes.object,
   className: _react.PropTypes.string,
+  children: _react.PropTypes.node,
   title: _react.PropTypes.string
 };
 

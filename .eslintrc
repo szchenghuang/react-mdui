@@ -17,7 +17,8 @@
         "modules": true
     },
     "plugins": [
-        "react"
+        "react",
+        "no-unused-vars-rest"
     ],
     "rules": {
         "block-spacing": [1, "always"],
@@ -33,7 +34,8 @@
         "no-console": 1,
         "no-extra-boolean-cast": 1,
         "no-mixed-spaces-and-tabs": 1,
-        "no-unused-vars": 1,
+        "no-unused-vars": 0,
+        "no-unused-vars-rest/no-unused-vars": [2, {"ignoreDestructuredVarsWithRest": true}],
         "no-unreachable": 1,
         "no-multiple-empty-lines": [1, {max: 1, maxEOF: 0, maxBOF: 0}],
         "object-curly-spacing": [1, "always"],

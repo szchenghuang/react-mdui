@@ -1,48 +1,39 @@
 'use strict';
 
-import _ from 'lodash';
 import React, { PropTypes } from 'react';
-import { css } from 'glamor';
 import ClassNames from 'classnames';
 
-class ItemAvatar extends React.PureComponent {
+class ItemAvatar extends React.Component {
   render() {
     const {
-      style,
       className,
       children,
       src,
-      materialIcon
+      materialIcon,
+      ...restProps
     } = this.props;
 
     const clx = ClassNames({
       ...( className && { [ className ]: true } ),
       'mdui-list-item-avatar': true,
-      ...( materialIcon && { 'mdui-icon material-icons': true } )
+      ...( !children && materialIcon && { 'mdui-icon material-icons': true } )
     });
 
-    const props = _.omit( this.props, [ 'style', 'className', 'children', 'src', 'materialIcon' ] );
+    const props = {
+      ...restProps,
+      className: clx
+    };
 
     if ( src ) {
       return (
-        <div
-          ref={ node => this.root = node }
-          { ...css( style ) }
-          className={ clx }
-          { ...props }
-        >
+        <div { ...props }>
           { children || <img src={ src } /> }
         </div>
       );
     }
 
     return (
-      <i
-        ref={ node => this.root = node }
-        { ...css( style ) }
-        className={ clx }
-        { ...props }
-      >
+      <i { ...props }>
         { children || materialIcon }
       </i>
     );

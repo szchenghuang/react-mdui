@@ -1,19 +1,17 @@
 'use strict';
 
-import _ from 'lodash';
 import React, { PropTypes } from 'react';
-import { css } from 'glamor';
 import ClassNames from 'classnames';
 
-class ItemTitle extends React.PureComponent {
+class ItemTitle extends React.Component {
   render() {
     const {
-      style,
       className,
       children,
       oneLine,
       twoLines,
-      threeLines
+      threeLines,
+      ...restProps
     } = this.props;
 
     const clx = ClassNames({
@@ -24,17 +22,15 @@ class ItemTitle extends React.PureComponent {
       'mdui-list-item-three-line': threeLines
     });
 
-    const props = _.omit( this.props, [ 'style', 'className', 'children', 'oneLine', 'twoLines', 'threeLines' ] );
+    const props = {
+      ...restProps,
+      className: clx
+    };
 
     return (
-      <i
-        ref={ node => this.root = node }
-        { ...css( style ) }
-        className={ clx }
-        { ...props }
-      >
+      <div { ...props }>
         { children }
-      </i>
+      </div>
     );
   }
 }

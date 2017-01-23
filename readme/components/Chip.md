@@ -1,29 +1,22 @@
 ## Usage ##
 
-```sh
-import { Chip } from 'react-mdui';
-
-const Chip = (
-  <Chip
-    icon={ <Icon materialIcon="&#xe87c;" /> }
-    title="Click Me"
-    delete
-    onClickDelete={ function() { console.log( 'delete' ) } }
-  >
-    Click Me!
-  </Chip>
-);
-```
+See the demo.
 
 ## Props ##
+
+### Chip ###
 
 Name           | Type   | Default | Description
 ---------------|--------|---------|-------------
 style          | object |         | `style` attribute for the root element
 className      | string |         | `class` attribute for the root element
+children       | node   |         | child elements
+styleIcon      | object |         | `style` attribute for the icon element
+classNameIcon  | string |         | `class` attribute for the icon element
 styleTitle     | object |         | `style` attribute for the title element
 classNameTitle | string |         | `class` attribute for the title element
-icon           | node   |         | include an icon
-title          | string |         | include the text label
-delete         | any    |         | include the delete button
-onClickDelete  | func   |         | callback when the delete button is clicked
+icon           | node   |         | an icon to render
+iconSrc        | string |         | link to render an image icon
+title          | string |         | label text
+delete         | any    | false   | include the close button
+onDelete       | func   |         | callback when the close button is clicked

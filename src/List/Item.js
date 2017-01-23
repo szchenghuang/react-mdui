@@ -1,20 +1,17 @@
 'use strict';
 
-import _ from 'lodash';
 import React, { PropTypes } from 'react';
-import { css } from 'glamor';
 import ClassNames from 'classnames';
 
 class Item extends React.Component {
   render() {
     const {
-      style,
       className,
       children,
-      node,
       href,
       active,
-      ripple
+      ripple,
+      ...restProps
     } = this.props;
 
     const clx = ClassNames({
@@ -24,33 +21,26 @@ class Item extends React.Component {
       'mdui-ripple': ripple
     });
 
-    const props = _.omit( props, [ 'style', 'className', 'children', 'node', 'href', 'active', 'ripple' ] );
+    const props = {
+      ...restProps,
+      className: clx
+    };
 
-    if ( 'a' === node ) {
+    if ( href ) {
+      props.href = href;
+
       return (
-        <a
-          ref={ node => this.root = node }
-          { ...css( style ) }
-          className={ clx }
-          href={ href }
-          { ...props }
-        >
+        <a { ...props }>
           { children }
         </a>
       );
     }
 
     return (
-      <li
-        ref={ node => this.root = node }
-        { ...css( style ) }
-        className={ clx }
-        { ...props }
-      >
+      <li { ...props }>
         { children }
       </li>
     );
-
   }
 }
 
@@ -58,14 +48,12 @@ Item.propTypes = {
   style: PropTypes.object,
   className: PropTypes.string,
   children: PropTypes.node,
-  node: PropTypes.string,
   href: PropTypes.string,
   active: PropTypes.any,
   ripple: PropTypes.any
 };
 
 Item.defaultProps = {
-  node: 'li',
   ripple: true
 };
 

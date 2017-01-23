@@ -11,7 +11,6 @@ import Styles from './styles';
 import React from 'react';
 import { css } from 'glamor';
 import Highlight from 'react-highlight';
-import reactElementToJSXString from 'react-element-to-jsx-string';
 
 //#############################################################################
 // Application includes.
@@ -28,7 +27,7 @@ import reactElementToJSXString from 'react-element-to-jsx-string';
 //#############################################################################
 // React components.
 //#############################################################################
-class Example extends React.PureComponent{
+class Example extends React.Component{
   constructor( props ) {
     super( props );
     this.state = {
@@ -67,7 +66,7 @@ class Example extends React.PureComponent{
         <pre { ...css( styleCode ) }>
           <code { ...css( Styles[ 'doc-example-code code' ] ) }>
             <Highlight className="js">
-              { code || reactElementToJSXString( demo ) }
+              { code }
             </Highlight>
           </code>
         </pre>

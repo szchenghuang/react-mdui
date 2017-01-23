@@ -16,7 +16,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild:demo": "rm -rf docs && mkdir docs",
     "build:demo": "./node_modules/.bin/webpack --config ./demo/webpack.config.js",
-    "dev": "./node_modules/.bin/webpack-dev-server --devtool eval --progress --colors --hot --content-base docs/"
+    "dev": "./node_modules/.bin/webpack-dev-server --devtool eval --progress --colors --hot --content-base docs/ --host 0.0.0.0 --port 3013"
   },
   "homepage": "https://github.com/szchenghuang/react-mdui#readme",
   "repository": {
@@ -29,7 +29,7 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "glamor": "^2.20.20",
-    "mdui": "^0.1.1",
+    "mdui": "^0.1.2",
     "react": "^15.4.1",
     "react-dom": "^15.4.1"
   },
@@ -51,6 +51,7 @@
     "eslint-config-standard": "^6.0.0",
     "eslint-plugin-import": "^1.14.0",
     "eslint-plugin-jsx-a11y": "^2.2.1",
+    "eslint-plugin-no-unused-vars-rest": "^1.0.4",
     "eslint-plugin-promise": "^2.0.1",
     "eslint-plugin-react": "^6.2.0",
     "eslint-plugin-standard": "^2.0.0",
@@ -59,7 +60,6 @@
     "json-loader": "^0.5.4",
     "postcss": "^5.1.2",
     "postcss-loader": "^0.11.1",
-    "react-element-to-jsx-string": "^6.0.0",
     "react-highlight": "^0.9.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",

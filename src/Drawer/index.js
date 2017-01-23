@@ -1,45 +1,55 @@
 'use strict';
 
-import _ from 'lodash';
 import React, { PropTypes } from 'react';
-import { css } from 'glamor';
 import ClassNames from 'classnames';
 
 import mdui from '../index';
 
-class Drawer extends React.PureComponent {
-  componentWillMount() {
-    const {
-      right,
-      open
-    } = this.props;
-
-    if ( open ) {
-      const className = 'mdui-drawer-body-' + right ? 'right' : 'left';
-      if ( document.body.classList ) {
-        document.body.classList.add( className );
-      } else {
-        if ( -1 == document.body.className.indexOf( className ) ) {
-          document.body.className += ' ' + className;
-        }
-      }
-    }
+class DrawerControlled extends React.Component {
+  constructor( props ) {
+    super( props );
+    const side = props.right ? 'right' : 'left';
+    this.state = {
+      open: props.open,
+      side,
+      classNameBody: 'mdui-drawer-body-' + side
+    };
   }
 
   componentDidMount() {
-    new mdui.Drawer( this.root, this.props.options );
+    const { open, overlay, onChange } = this.props;
+
+    this.root.addEventListener( 'open.mdui.drawer', () => onChange( true ) );
+    this.root.addEventListener( 'close.mdui.drawer', () => onChange( false ) );
+
+    this.drawer = new mdui.Drawer( this.root, { overlay: !!overlay } );
+    this.drawer.close();
+
+    if ( open ) {
+      this.drawer.open();
+    }
+  }
+
+  componentWillReceiveProps( nextProps ) {
+    const { open: nextOpen } = nextProps;
+
+    if ( nextOpen ) {
+      this.drawer.open();
+    } else {
+      this.drawer.close();
+    }
   }
 
   render() {
     const {
-      style,
       className,
       children,
-      fullHeight,
-      right,
-      scrollBar,
       open,
-      close
+      right,
+      overlay,
+      fullHeight,
+      scrollBar,
+      ...restProps
     } = this.props;
 
     const clx = ClassNames({
@@ -49,34 +59,37 @@ class Drawer extends React.PureComponent {
       'mdui-drawer-right': right,
       'mdui-drawer-scrollbar': scrollBar,
       'mdui-drawer-open': open,
-      'mdui-drawer-close': close
+      'mdui-drawer-close': !open
     });
 
-    const props = _.omit( this.props, [ 'style', 'className', 'children',
-      'fullHeight', 'right', 'scrollBar',  'open', 'close' ] );
+    const props = {
+      ...restProps,
+      className: clx,
+      ref: node => this.root = node
+    };
 
     return (
-      <div
-        ref={ node => this.root = node }
-        { ...css( style ) }
-        className={ clx }
-        { ...props }
-      >
+      <div { ...props }>
         { children }
       </div>
     );
   }
 }
 
-Drawer.propTypes = {
+DrawerControlled.propTypes = {
   style: PropTypes.object,
   className: PropTypes.string,
-  options: PropTypes.object,
-  fullHeight: PropTypes.any,
-  right: PropTypes.any,
-  scrollBar: PropTypes.any,
+  children: PropTypes.node,
   open: PropTypes.any,
-  close: PropTypes.any
+  right: PropTypes.any,
+  overlay: PropTypes.any,
+  fullHeight: PropTypes.any,
+  scrollBar: PropTypes.any,
+  onChange: PropTypes.func
 };
 
-export default Drawer;
+DrawerControlled.defaultProps = {
+  onChange: () => {}
+};
+
+export default DrawerControlled;
