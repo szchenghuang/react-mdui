@@ -10,6 +10,7 @@ import 'mdui/dist/js/mdui.min.js';
 // Application includes.
 //#############################################################################
 import Button from './Button';
+import Checkbox from './Checkbox';
 import Chip, {
   Title as ChipTitle
 } from './Chip';
@@ -40,8 +41,10 @@ import Panel, {
   ItemBody as PanelItemBody,
   ItemActions as PanelItemActions
 } from './Panel';
+import Radio from './Radio';
 import Slider from './Slider';
 import Subheader from './Subheader';
+import Switch from './Switch';
 
 //#############################################################################
 // Exports.
@@ -50,6 +53,7 @@ import Subheader from './Subheader';
 export default mdui;
 export {
   Button,
+  Checkbox,
   Chip,
   ChipTitle,
   Collapse,
@@ -76,6 +80,8 @@ export {
   PanelItemArrow,
   PanelItemBody,
   PanelItemActions,
+  Radio,
   Slider,
-  Subheader
+  Subheader,
+  Switch
 };

@@ -47,6 +47,7 @@ import Button from 'react-mdui/Button';
 ```
 
 * [Button][Button]
+* [Checkbox][Checkbox]
 * [Chip][Chip]
 * [Collapse][Collapse]
 * [Divider][Divider]
@@ -54,8 +55,10 @@ import Button from 'react-mdui/Button';
 * [Icon][Icon]
 * [List][List]
 * [Panel][Panel]
+* [Radio][Radio]
 * [Slider][Slider]
 * [Subheader][Subheader]
+* [Switch][Switch]
 
 ## License ##
 
@@ -63,6 +66,7 @@ MIT. See [LICENSE.md](http://github.com/szchenghuang/react-mdui/blob/master/LICE
 
 [mdui]: https://github.com/zdhxiong/mdui
 [Button]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Button.md
+[Checkbox]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Checkbox.md
 [Chip]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Chip.md
 [Collapse]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Collapse.md
 [Divider]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Divider.md
@@ -70,8 +74,10 @@ MIT. See [LICENSE.md](http://github.com/szchenghuang/react-mdui/blob/master/LICE
 [Icon]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Icon.md
 [List]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/List.md
 [Panel]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Panel.md
+[Radio]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Radio.md
 [Slider]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Slider.md
 [Subheader]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Subheader.md
+[Switch]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Switch.md
 
 [demo]: https://szchenghuang.github.io/react-mdui/
 

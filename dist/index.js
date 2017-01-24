@@ -7,7 +7,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Subheader = exports.Slider = exports.PanelItemActions = exports.PanelItemBody = exports.PanelItemArrow = exports.PanelItemSummary = exports.PanelItemTitle = exports.PanelItemHeader = exports.PanelItem = exports.Panel = exports.ListItemTitle = exports.ListItemText = exports.ListItemIcon = exports.ListItemContent = exports.ListItemAvatar = exports.ListItem = exports.List = exports.Icon = exports.Drawer = exports.Divider = exports.CollapseItemUncontrolled = exports.CollapseItemHeader = exports.CollapseItemBody = exports.CollapseItemArrow = exports.CollapseItem = exports.Collapse = exports.ChipTitle = exports.Chip = exports.Button = undefined;
+exports.Switch = exports.Subheader = exports.Slider = exports.Radio = exports.PanelItemActions = exports.PanelItemBody = exports.PanelItemArrow = exports.PanelItemSummary = exports.PanelItemTitle = exports.PanelItemHeader = exports.PanelItem = exports.Panel = exports.ListItemTitle = exports.ListItemText = exports.ListItemIcon = exports.ListItemContent = exports.ListItemAvatar = exports.ListItem = exports.List = exports.Icon = exports.Drawer = exports.Divider = exports.CollapseItemUncontrolled = exports.CollapseItemHeader = exports.CollapseItemBody = exports.CollapseItemArrow = exports.CollapseItem = exports.Collapse = exports.ChipTitle = exports.Chip = exports.Checkbox = exports.Button = undefined;
 
 require('mdui/dist/css/mdui.min.css');
 
@@ -16,6 +16,10 @@ require('mdui/dist/js/mdui.min.js');
 var _Button = require('./Button');
 
 var _Button2 = _interopRequireDefault(_Button);
+
+var _Checkbox = require('./Checkbox');
+
+var _Checkbox2 = _interopRequireDefault(_Checkbox);
 
 var _Chip = require('./Chip');
 
@@ -45,6 +49,10 @@ var _Panel = require('./Panel');
 
 var _Panel2 = _interopRequireDefault(_Panel);
 
+var _Radio = require('./Radio');
+
+var _Radio2 = _interopRequireDefault(_Radio);
+
 var _Slider = require('./Slider');
 
 var _Slider2 = _interopRequireDefault(_Slider);
@@ -53,19 +61,24 @@ var _Subheader = require('./Subheader');
 
 var _Subheader2 = _interopRequireDefault(_Subheader);
 
+var _Switch = require('./Switch');
+
+var _Switch2 = _interopRequireDefault(_Switch);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //#############################################################################
 // Exports.
 //#############################################################################
 /* global mdui: true */
-
+exports.default = mdui;
 
 //#############################################################################
 // Application includes.
 //#############################################################################
-exports.default = mdui;
+
 exports.Button = _Button2.default;
+exports.Checkbox = _Checkbox2.default;
 exports.Chip = _Chip2.default;
 exports.ChipTitle = _Chip.Title;
 exports.Collapse = _Collapse2.default;
@@ -92,5 +105,7 @@ exports.PanelItemSummary = _Panel.ItemSummary;
 exports.PanelItemArrow = _Panel.ItemArrow;
 exports.PanelItemBody = _Panel.ItemBody;
 exports.PanelItemActions = _Panel.ItemActions;
+exports.Radio = _Radio2.default;
 exports.Slider = _Slider2.default;
 exports.Subheader = _Subheader2.default;
+exports.Switch = _Switch2.default;

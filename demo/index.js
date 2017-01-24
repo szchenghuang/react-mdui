@@ -59,13 +59,16 @@ const App = React.createClass({
               <CollapseItemBody ripple>
                 <List>
                   <ListItem ripple onClick={ event => this.onClickComponent( event, 'Button' ) }>Button</ListItem>
+                  <ListItem ripple onClick={ event => this.onClickComponent( event, 'Checkbox' ) }>Checkbox</ListItem>
                   <ListItem ripple onClick={ event => this.onClickComponent( event, 'Chip' ) }>Chip</ListItem>
                   <ListItem ripple onClick={ event => this.onClickComponent( event, 'Collapse' ) }>Collapse</ListItem>
                   <ListItem ripple onClick={ event => this.onClickComponent( event, 'Drawer' ) }>Drawer</ListItem>
                   <ListItem ripple onClick={ event => this.onClickComponent( event, 'Icon' ) }>Icon</ListItem>
                   <ListItem ripple onClick={ event => this.onClickComponent( event, 'List' ) }>List</ListItem>
                   <ListItem ripple onClick={ event => this.onClickComponent( event, 'Panel' ) }>Panel</ListItem>
+                  <ListItem ripple onClick={ event => this.onClickComponent( event, 'Radio' ) }>Radio</ListItem>
                   <ListItem ripple onClick={ event => this.onClickComponent( event, 'Slider' ) }>Slider</ListItem>
+                  <ListItem ripple onClick={ event => this.onClickComponent( event, 'Switch' ) }>Switch</ListItem>
                 </List>
               </CollapseItemBody>
             </CollapseItem>
