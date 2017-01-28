@@ -8,8 +8,10 @@ import Drawer from './Drawer';
 import Icon from './Icon';
 import List from './List';
 import Panel from './Panel';
+import Progress from './Progress';
 import Radio from './Radio';
 import Slider from './Slider';
+import Spinner from './Spinner';
 import Switch from './Switch';
 
 export default {
@@ -21,7 +23,9 @@ export default {
   Icon,
   List,
   Panel,
+  Progress,
   Radio,
   Slider,
+  Spinner,
   Switch
 };

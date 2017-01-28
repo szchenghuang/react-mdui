@@ -41,8 +41,10 @@ import Panel, {
   ItemBody as PanelItemBody,
   ItemActions as PanelItemActions
 } from './Panel';
+import Progress from './Progress';
 import Radio from './Radio';
 import Slider from './Slider';
+import Spinner from './Spinner';
 import Subheader from './Subheader';
 import Switch from './Switch';
 
@@ -80,8 +82,10 @@ export {
   PanelItemArrow,
   PanelItemBody,
   PanelItemActions,
+  Progress,
   Radio,
   Slider,
+  Spinner,
   Subheader,
   Switch
 };

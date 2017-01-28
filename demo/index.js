@@ -12,6 +12,22 @@ import {
 import Demos from './Demos';
 import Example from './Example';
 
+const COMPONENTS = [
+  'Button',
+  'Checkbox',
+  'Chip',
+  'Collapse',
+  'Drawer',
+  'Icon',
+  'List',
+  'Panel',
+  'Progress',
+  'Radio',
+  'Slider',
+  'Spinner',
+  'Switch'
+];
+
 const Examples = props => (
   <div className="mdui-container">
     <h3>{ props.label }</h3>
@@ -24,7 +40,7 @@ const Examples = props => (
 const App = React.createClass({
   getInitialState() {
     return {
-      component: 'Button'
+      component: COMPONENTS[ 0 ]
     };
   },
   render() {
@@ -58,17 +74,15 @@ const App = React.createClass({
               </CollapseItemHeader>
               <CollapseItemBody ripple>
                 <List>
-                  <ListItem ripple onClick={ event => this.onClickComponent( event, 'Button' ) }>Button</ListItem>
-                  <ListItem ripple onClick={ event => this.onClickComponent( event, 'Checkbox' ) }>Checkbox</ListItem>
-                  <ListItem ripple onClick={ event => this.onClickComponent( event, 'Chip' ) }>Chip</ListItem>
-                  <ListItem ripple onClick={ event => this.onClickComponent( event, 'Collapse' ) }>Collapse</ListItem>
-                  <ListItem ripple onClick={ event => this.onClickComponent( event, 'Drawer' ) }>Drawer</ListItem>
-                  <ListItem ripple onClick={ event => this.onClickComponent( event, 'Icon' ) }>Icon</ListItem>
-                  <ListItem ripple onClick={ event => this.onClickComponent( event, 'List' ) }>List</ListItem>
-                  <ListItem ripple onClick={ event => this.onClickComponent( event, 'Panel' ) }>Panel</ListItem>
-                  <ListItem ripple onClick={ event => this.onClickComponent( event, 'Radio' ) }>Radio</ListItem>
-                  <ListItem ripple onClick={ event => this.onClickComponent( event, 'Slider' ) }>Slider</ListItem>
-                  <ListItem ripple onClick={ event => this.onClickComponent( event, 'Switch' ) }>Switch</ListItem>
+                  { COMPONENTS.map( ( COMPONENT, index ) => (
+                    <ListItem
+                      key={ index }
+                      ripple
+                      onClick={ event => this.onClickComponent( event, COMPONENT ) }
+                    >
+                      { COMPONENT }
+                    </ListItem>
+                  ))}
                 </List>
               </CollapseItemBody>
             </CollapseItem>
