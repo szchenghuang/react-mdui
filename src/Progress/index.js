@@ -30,7 +30,7 @@ class Progress extends React.Component {
     const childProps = {
       ...( percentage && { style: { width: percentage + '%' } } ),
       className: childClx
-    }
+    };
 
     return (
       <div { ...props }>

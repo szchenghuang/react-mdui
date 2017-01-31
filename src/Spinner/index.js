@@ -22,7 +22,7 @@ class Spinner extends React.Component {
     const style = {
       ...this.props.style,
       ...( size && { width: size, height: size } )
-    }
+    };
 
     const clx = ClassNames({
       ...( className && { [ className ]: true } ),

@@ -6,16 +6,6 @@ import ClassNames from 'classnames';
 import mdui from '../index';
 
 class DrawerControlled extends React.Component {
-  constructor( props ) {
-    super( props );
-    const side = props.right ? 'right' : 'left';
-    this.state = {
-      open: props.open,
-      side,
-      classNameBody: 'mdui-drawer-body-' + side
-    };
-  }
-
   componentDidMount() {
     const { open, overlay, onChange } = this.props;
 
