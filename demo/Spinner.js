@@ -26,7 +26,7 @@ const examples = [
   {
     label: "Colorful slider",
     demo: <Spinner colorful />,
-    code: '<Spinner colorful />'
+    code: "<Spinner colorful />"
   }
 ];
 
