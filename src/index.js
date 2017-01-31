@@ -9,6 +9,7 @@ import 'mdui/dist/js/mdui.min.js';
 //#############################################################################
 // Application includes.
 //#############################################################################
+import AppBar from './AppBar';
 import Button from './Button';
 import Checkbox from './Checkbox';
 import Chip, {
@@ -47,6 +48,12 @@ import Slider from './Slider';
 import Spinner from './Spinner';
 import Subheader from './Subheader';
 import Switch from './Switch';
+import Tab, {
+  Item as TabItem
+} from './Tab';
+import Toolbar, {
+  Spacer as ToolbarSpacer
+} from './Toolbar';
 
 //#############################################################################
 // Exports.
@@ -54,6 +61,7 @@ import Switch from './Switch';
 /* global mdui: true */
 export default mdui;
 export {
+  AppBar,
   Button,
   Checkbox,
   Chip,
@@ -87,5 +95,9 @@ export {
   Slider,
   Spinner,
   Subheader,
-  Switch
+  Switch,
+  Tab,
+  TabItem,
+  Toolbar,
+  ToolbarSpacer
 };

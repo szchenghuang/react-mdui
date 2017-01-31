@@ -4,15 +4,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
 import {
+  AppBar,
+  Button,
   Collapse, CollapseItem, CollapseItemArrow, CollapseItemBody, CollapseItemHeader,
   Drawer,
   Icon,
-  List, ListItem, ListItemContent, ListItemIcon
+  List, ListItem, ListItemContent, ListItemIcon,
+  Toolbar
 } from '../dist';
 import Demos from './Demos';
 import Example from './Example';
 
 const COMPONENTS = [
+  'AppBar',
   'Button',
   'Checkbox',
   'Chip',
@@ -25,7 +29,9 @@ const COMPONENTS = [
   'Radio',
   'Slider',
   'Spinner',
-  'Switch'
+  'Switch',
+  'Tab',
+  'Toolbar'
 ];
 
 const Examples = props => (
@@ -40,25 +46,31 @@ const Examples = props => (
 const App = React.createClass({
   getInitialState() {
     return {
-      component: COMPONENTS[ 0 ]
+      component: COMPONENTS[ 0 ],
+      open: true
     };
   },
   render() {
-    const { component } = this.state;
+    const { component, open } = this.state;
 
     return (
       <div>
-        <Drawer scrollBar open>
+        <AppBar
+          fixed
+          toolbar={
+            <Toolbar>
+              <Button
+                node='a'
+                icon
+                onClick={ () => this.setState( { open: !open } ) }
+              >
+                <Icon materialIcon="&#xe5d2;" />
+              </Button>
+              <span className="mdui-typo-title">react-mdui</span>
+            </Toolbar>
+          } />
+        <Drawer scrollBar open={ this.state.open }>
           <Collapse>
-            <CollapseItem>
-              <CollapseItemHeader>
-                <List>
-                  <ListItem>
-                    <ListItemContent>react-mdui</ListItemContent>
-                  </ListItem>
-                </List>
-              </CollapseItemHeader>
-            </CollapseItem>
             <CollapseItem
               defaultOpen
               onToggle={ this.onClickComponents }

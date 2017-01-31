@@ -1,5 +1,6 @@
 'use strict';
 
+import AppBar from './AppBar';
 import Button from './Button';
 import Checkbox from './Checkbox';
 import Chip from './Chip';
@@ -13,8 +14,11 @@ import Radio from './Radio';
 import Slider from './Slider';
 import Spinner from './Spinner';
 import Switch from './Switch';
+import Tab from './Tab';
+import Toolbar from './Toolbar';
 
 export default {
+  AppBar,
   Button,
   Checkbox,
   Chip,
@@ -27,5 +31,7 @@ export default {
   Radio,
   Slider,
   Spinner,
-  Switch
+  Switch,
+  Tab,
+  Toolbar
 };
