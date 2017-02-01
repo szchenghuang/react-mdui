@@ -1,7 +1,7 @@
 {
   "name": "react-mdui",
   "author": "szchenghuang <szchenghuang@gmail.com>",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Extend MDUI into ReactJS.",
   "main": "index.js",
   "keywords": [
