@@ -53,6 +53,7 @@ import Button from 'react-mdui/Button';
 * [Collapse][Collapse]
 * [Divider][Divider]
 * [Drawer][Drawer]
+* [Headroom][Headroom]
 * [Icon][Icon]
 * [List][List]
 * [Panel][Panel]
@@ -77,6 +78,7 @@ MIT. See [LICENSE.md](http://github.com/szchenghuang/react-mdui/blob/master/LICE
 [Collapse]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Collapse.md
 [Divider]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Divider.md
 [Drawer]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Drawer.md
+[Headroom]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Headroom.md
 [Icon]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Icon.md
 [List]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/List.md
 [Panel]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Panel.md

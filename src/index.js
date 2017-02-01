@@ -22,9 +22,10 @@ import Collapse, {
   ItemHeader as CollapseItemHeader,
   ItemUncontrolled as CollapseItemUncontrolled
 } from './Collapse';
-import Icon from './Icon';
 import Divider from './Divider';
 import Drawer from './Drawer';
+import Headroom from './Headroom';
+import Icon from './Icon';
 import List, {
   Item as ListItem,
   ItemAvatar as ListItemAvatar,
@@ -74,6 +75,7 @@ export {
   CollapseItemUncontrolled,
   Divider,
   Drawer,
+  Headroom,
   Icon,
   List,
   ListItem,

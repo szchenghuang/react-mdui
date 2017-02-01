@@ -39,7 +39,9 @@ class Example extends React.Component{
     const {
       label,
       demo,
-      code
+      code,
+      back,
+      onClick
     } = this.props;
 
     const styleCode = {
@@ -61,7 +63,7 @@ class Example extends React.Component{
           { label }
         </div>
         <div { ...css( Styles[ 'doc-example-demo' ] ) }>
-          { demo }
+          { React.cloneElement( demo, { back, onClick } ) }
         </div>
         <pre { ...css( styleCode ) }>
           <code { ...css( Styles[ 'doc-example-code code' ] ) }>

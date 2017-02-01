@@ -6,6 +6,7 @@ import Checkbox from './Checkbox';
 import Chip from './Chip';
 import Collapse from './Collapse';
 import Drawer from './Drawer';
+import Headroom from './Headroom';
 import Icon from './Icon';
 import List from './List';
 import Panel from './Panel';
@@ -24,6 +25,7 @@ export default {
   Chip,
   Collapse,
   Drawer,
+  Headroom,
   Icon,
   List,
   Panel,
