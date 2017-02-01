@@ -46,6 +46,7 @@ import { Button } from 'react-mdui';
 import Button from 'react-mdui/Button';
 ```
 
+* [AppBar][AppBar]
 * [Button][Button]
 * [Checkbox][Checkbox]
 * [Chip][Chip]
@@ -55,16 +56,21 @@ import Button from 'react-mdui/Button';
 * [Icon][Icon]
 * [List][List]
 * [Panel][Panel]
+* [Progress][Progress]
 * [Radio][Radio]
 * [Slider][Slider]
+* [Spinner][Spinner]
 * [Subheader][Subheader]
 * [Switch][Switch]
+* [Tab][Tab]
+* [Toolbar][Toolbar]
 
 ## License ##
 
 MIT. See [LICENSE.md](http://github.com/szchenghuang/react-mdui/blob/master/LICENSE.md) for details.
 
 [mdui]: https://github.com/zdhxiong/mdui
+[AppBar]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/AppBar.md
 [Button]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Button.md
 [Checkbox]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Checkbox.md
 [Chip]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Chip.md
@@ -74,10 +80,14 @@ MIT. See [LICENSE.md](http://github.com/szchenghuang/react-mdui/blob/master/LICE
 [Icon]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Icon.md
 [List]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/List.md
 [Panel]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Panel.md
+[Progress]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Progress.md
 [Radio]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Radio.md
 [Slider]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Slider.md
+[Spinner]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Spinner.md
 [Subheader]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Subheader.md
 [Switch]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Switch.md
+[Tab]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Tab.md
+[Toolbar]: https://github.com/szchenghuang/react-mdui/blob/master/readme/components/Toolbar.md
 
 [demo]: https://szchenghuang.github.io/react-mdui/
 
