@@ -3,7 +3,6 @@
 import React, { PropTypes } from 'react';
 import ClassNames from 'classnames';
 
-import mdui from '../index';
 import { addClass } from '../utils';
 
 const addClassToBody = function( className ) {
