@@ -37,7 +37,7 @@ class Tab extends React.Component {
     const props = {
       ...restProps,
       className: clx,
-      ref: node => this.root = node,
+      ref: node => this.root = node
     };
 
     const ids = _.map( children, child => child.props.id );

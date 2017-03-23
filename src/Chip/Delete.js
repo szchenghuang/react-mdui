@@ -32,6 +32,8 @@ class Delete extends React.Component {
 }
 
 Delete.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
   onClick: PropTypes.func
 };
 

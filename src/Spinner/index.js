@@ -34,7 +34,7 @@ class Spinner extends React.Component {
       ...restProps,
       style,
       className: clx,
-      ref: node => this.root = node,
+      ref: node => this.root = node
     };
 
     return (
@@ -46,6 +46,7 @@ class Spinner extends React.Component {
 Spinner.propTypes = {
   style: PropTypes.object,
   className: PropTypes.string,
+  children: PropTypes.node,
   size: PropTypes.string,
   colorful: PropTypes.any
 };

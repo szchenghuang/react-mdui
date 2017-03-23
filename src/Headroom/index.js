@@ -38,7 +38,7 @@ class Headroom extends React.Component {
     const props = {
       ...restProps,
       className: clx,
-      ref: node => this.root = node,
+      ref: node => this.root = node
     };
 
     return (

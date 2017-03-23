@@ -55,5 +55,5 @@ export {
   Item,
   ItemArrow,
   ItemBody,
-  ItemHeader,
+  ItemHeader
 };
