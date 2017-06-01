@@ -55,6 +55,8 @@
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -79,143 +81,162 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 	var COMPONENTS = ['AppBar', 'Button', 'Checkbox', 'Chip', 'Collapse', 'Drawer', 'Headroom', 'Icon', 'List', 'Panel', 'Progress', 'Radio', 'Slider', 'Spinner', 'Switch', 'Tab', 'Toolbar'];
 
-	var App = _react2.default.createClass({
-	  displayName: 'App',
-	  getInitialState: function getInitialState() {
-	    return {
+	var App = function (_React$Component) {
+	  _inherits(App, _React$Component);
+
+	  function App(props) {
+	    _classCallCheck(this, App);
+
+	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+	    _this.onClickComponent = function (event, component) {
+	      event.stopPropagation();
+	      _this.setState({ component: component });
+	    };
+
+	    _this.state = {
 	      component: COMPONENTS[0],
 	      open: true,
 	      blank: false
 	    };
-	  },
-	  render: function render() {
-	    var _this = this;
+	    return _this;
+	  }
 
-	    var _state = this.state,
-	        component = _state.component,
-	        open = _state.open,
-	        blank = _state.blank;
+	  _createClass(App, [{
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+
+	      var _state = this.state,
+	          component = _state.component,
+	          open = _state.open,
+	          blank = _state.blank;
 
 
-	    return _react2.default.createElement(
-	      'div',
-	      null,
-	      !blank && _react2.default.createElement(
+	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_dist.AppBar, {
-	          fixed: true,
-	          toolbar: _react2.default.createElement(
-	            _dist.Toolbar,
-	            null,
-	            _react2.default.createElement(
-	              _dist.Button,
-	              {
-	                node: 'a',
-	                icon: true,
-	                onClick: function onClick() {
-	                  return _this.setState({ open: !open });
-	                }
-	              },
-	              _react2.default.createElement(_dist.Icon, { materialIcon: '\uE5D2' })
-	            ),
-	            _react2.default.createElement(
-	              'span',
-	              { className: 'mdui-typo-title' },
-	              'react-mdui'
-	            )
-	          ) }),
-	        _react2.default.createElement(
-	          _dist.Drawer,
-	          { scrollBar: true, open: this.state.open },
-	          _react2.default.createElement(
-	            _dist.Collapse,
-	            null,
-	            _react2.default.createElement(
-	              _dist.CollapseItem,
-	              {
-	                defaultOpen: true,
-	                onToggle: this.onClickComponents
-	              },
+	        !blank && _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(_dist.AppBar, {
+	            fixed: true,
+	            toolbar: _react2.default.createElement(
+	              _dist.Toolbar,
+	              null,
 	              _react2.default.createElement(
-	                _dist.CollapseItemHeader,
-	                null,
-	                _react2.default.createElement(
-	                  _dist.List,
-	                  null,
-	                  _react2.default.createElement(
-	                    _dist.ListItem,
-	                    null,
-	                    _react2.default.createElement(_dist.ListItemIcon, { materialIcon: '\uE1BD' }),
-	                    _react2.default.createElement(
-	                      _dist.ListItemContent,
-	                      null,
-	                      'Components'
-	                    ),
-	                    _react2.default.createElement(_dist.CollapseItemArrow, null)
-	                  )
-	                )
+	                _dist.Button,
+	                {
+	                  node: 'a',
+	                  icon: true,
+	                  onClick: function onClick() {
+	                    return _this2.setState({ open: !open });
+	                  }
+	                },
+	                _react2.default.createElement(_dist.Icon, { materialIcon: '\uE5D2' })
 	              ),
 	              _react2.default.createElement(
-	                _dist.CollapseItemBody,
-	                { ripple: true },
+	                'span',
+	                { className: 'mdui-typo-title' },
+	                'react-mdui'
+	              )
+	            ) }),
+	          _react2.default.createElement(
+	            _dist.Drawer,
+	            { scrollBar: true, open: this.state.open },
+	            _react2.default.createElement(
+	              _dist.Collapse,
+	              null,
+	              _react2.default.createElement(
+	                _dist.CollapseItem,
+	                {
+	                  defaultOpen: true,
+	                  onToggle: this.onClickComponents
+	                },
 	                _react2.default.createElement(
-	                  _dist.List,
+	                  _dist.CollapseItemHeader,
 	                  null,
-	                  COMPONENTS.map(function (COMPONENT, index) {
-	                    return _react2.default.createElement(
+	                  _react2.default.createElement(
+	                    _dist.List,
+	                    null,
+	                    _react2.default.createElement(
 	                      _dist.ListItem,
-	                      {
-	                        key: index,
-	                        ripple: true,
-	                        onClick: function onClick(event) {
-	                          return _this.onClickComponent(event, COMPONENT);
-	                        }
-	                      },
-	                      COMPONENT
-	                    );
-	                  })
+	                      null,
+	                      _react2.default.createElement(_dist.ListItemIcon, { materialIcon: '\uE1BD' }),
+	                      _react2.default.createElement(
+	                        _dist.ListItemContent,
+	                        null,
+	                        'Components'
+	                      ),
+	                      _react2.default.createElement(_dist.CollapseItemArrow, null)
+	                    )
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  _dist.CollapseItemBody,
+	                  { ripple: true },
+	                  _react2.default.createElement(
+	                    _dist.List,
+	                    null,
+	                    COMPONENTS.map(function (COMPONENT, index) {
+	                      return _react2.default.createElement(
+	                        _dist.ListItem,
+	                        {
+	                          key: index,
+	                          ripple: true,
+	                          onClick: function onClick(event) {
+	                            return _this2.onClickComponent(event, COMPONENT);
+	                          }
+	                        },
+	                        COMPONENT
+	                      );
+	                    })
+	                  )
 	                )
 	              )
 	            )
 	          )
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'mdui-container' },
-	        _react2.default.createElement(
-	          'h3',
-	          null,
-	          component
 	        ),
-	        _Demos2.default[component].map(function (demo, index) {
-	          var props = _extends({
-	            key: component + '-' + index
-	          }, 'Headroom' === component && {
-	            back: function back() {
-	              return _this.setState({ blank: false });
-	            },
-	            onClick: function onClick() {
-	              return _this.setState({ blank: true });
-	            }
-	          }, demo);
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'mdui-container' },
+	          _react2.default.createElement(
+	            'h3',
+	            null,
+	            component
+	          ),
+	          _Demos2.default[component].map(function (demo, index) {
+	            var props = _extends({
+	              key: component + '-' + index
+	            }, 'Headroom' === component && {
+	              back: function back() {
+	                return _this2.setState({ blank: false });
+	              },
+	              onClick: function onClick() {
+	                return _this2.setState({ blank: true });
+	              }
+	            }, demo);
 
-	          return _react2.default.createElement(_Example2.default, props);
-	        })
-	      )
-	    );
-	  },
-	  onClickComponent: function onClickComponent(event, component) {
-	    event.stopPropagation();
-	    this.setState({ component: component });
-	  }
-	});
+	            return _react2.default.createElement(_Example2.default, props);
+	          })
+	        )
+	      );
+	    }
+	  }]);
+
+	  return App;
+	}(_react2.default.Component);
 
 	window.onload = function () {
-	  _reactDom2.default.render(_react2.default.createElement(App, null), document.querySelector('#container'));
+	  return _reactDom2.default.render(_react2.default.createElement(App, null), document.querySelector('#container'));
 	};
 
 /***/ },
@@ -47867,9 +47888,7 @@
 
 	    var _this = _possibleConstructorReturn(this, (Example.__proto__ || Object.getPrototypeOf(Example)).call(this, props));
 
-	    _this.state = {
-	      expand: false
-	    };
+	    _this.state = { expand: false };
 	    return _this;
 	  }
 

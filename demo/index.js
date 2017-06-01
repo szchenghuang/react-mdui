@@ -35,14 +35,15 @@ const COMPONENTS = [
   'Toolbar'
 ];
 
-const App = React.createClass({
-  getInitialState() {
-    return {
+class App extends React.Component {
+  constructor( props ) {
+    super( props );
+    this.state = {
       component: COMPONENTS[ 0 ],
       open: true,
       blank: false
     };
-  },
+  }
   render() {
     const { component, open, blank } = this.state;
 
@@ -114,16 +115,12 @@ const App = React.createClass({
         </div>
       </div>
     );
-  },
-  onClickComponent( event, component ) {
+  }
+  onClickComponent = ( event, component ) => {
     event.stopPropagation();
     this.setState( { component } );
   }
-});
+}
 
-window.onload = () => {
-  ReactDOM.render(
-    <App />,
-    document.querySelector( '#container' )
-  );
-};
+window.onload =
+  () => ReactDOM.render( <App />, document.querySelector( '#container' ) );

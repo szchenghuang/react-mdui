@@ -30,19 +30,10 @@ import Highlight from 'react-highlight';
 class Example extends React.Component{
   constructor( props ) {
     super( props );
-    this.state = {
-      expand: false
-    };
+    this.state = { expand: false };
   }
-
   render() {
-    const {
-      label,
-      demo,
-      code,
-      ...restProps
-    } = this.props;
-
+    const { label, demo, code, ...restProps } = this.props;
     const styleCode = {
       ...Styles[ 'doc-example-code' ],
       ...( this.state.expand && Styles[ 'doc-example-showcode doc-example-code' ] )
