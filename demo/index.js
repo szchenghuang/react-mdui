@@ -35,19 +35,6 @@ const COMPONENTS = [
   'Toolbar'
 ];
 
-const Examples = props => (
-  <div className="mdui-container">
-    <h3>{ props.label }</h3>
-    { props.examples.map( ( example, index ) => (
-      <Example
-        key={ props.label + '-' + index }
-        back={ props.back }
-        onClick={ props.onClick }
-        { ...example } />
-    ))}
-  </div>
-);
-
 const App = React.createClass({
   getInitialState() {
     return {
@@ -110,11 +97,21 @@ const App = React.createClass({
           </Drawer>
           </div>
         )}
-        <Examples
-          label={ component }
-          examples={ Demos[ component ] }
-          onClick={ () => this.setState( { blank: true } ) }
-          back={ () => this.setState( { blank: false } ) } />
+        <div className="mdui-container">
+          <h3>{ component }</h3>
+          { Demos[ component ].map( ( demo, index ) => {
+            const props = {
+              key: component + '-' + index,
+              ...( 'Headroom' === component && {
+                back: () => this.setState( { blank: false } ),
+                onClick: () => this.setState( { blank: true } )
+              } ),
+              ...demo
+            };
+
+            return <Example { ...props } />;
+          } ) }
+        </div>
       </div>
     );
   },

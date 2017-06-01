@@ -81,25 +81,6 @@
 
 	var COMPONENTS = ['AppBar', 'Button', 'Checkbox', 'Chip', 'Collapse', 'Drawer', 'Headroom', 'Icon', 'List', 'Panel', 'Progress', 'Radio', 'Slider', 'Spinner', 'Switch', 'Tab', 'Toolbar'];
 
-	var Examples = function Examples(props) {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'mdui-container' },
-	    _react2.default.createElement(
-	      'h3',
-	      null,
-	      props.label
-	    ),
-	    props.examples.map(function (example, index) {
-	      return _react2.default.createElement(_Example2.default, _extends({
-	        key: props.label + '-' + index,
-	        back: props.back,
-	        onClick: props.onClick
-	      }, example));
-	    })
-	  );
-	};
-
 	var App = _react2.default.createClass({
 	  displayName: 'App',
 	  getInitialState: function getInitialState() {
@@ -202,15 +183,29 @@
 	          )
 	        )
 	      ),
-	      _react2.default.createElement(Examples, {
-	        label: component,
-	        examples: _Demos2.default[component],
-	        onClick: function onClick() {
-	          return _this.setState({ blank: true });
-	        },
-	        back: function back() {
-	          return _this.setState({ blank: false });
-	        } })
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'mdui-container' },
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          component
+	        ),
+	        _Demos2.default[component].map(function (demo, index) {
+	          var props = _extends({
+	            key: component + '-' + index
+	          }, 'Headroom' === component && {
+	            back: function back() {
+	              return _this.setState({ blank: false });
+	            },
+	            onClick: function onClick() {
+	              return _this.setState({ blank: true });
+	            }
+	          }, demo);
+
+	          return _react2.default.createElement(_Example2.default, props);
+	        })
+	      )
 	    );
 	  },
 	  onClickComponent: function onClickComponent(event, component) {
@@ -23445,6 +23440,8 @@
 	}(_react2.default.Component);
 
 	Delete.propTypes = {
+	  className: _react.PropTypes.string,
+	  children: _react.PropTypes.node,
 	  onClick: _react.PropTypes.func
 	};
 
@@ -24575,16 +24572,16 @@
 	}
 
 	var ClassfiedComponent = function ClassfiedComponent(classes) {
-	  return function (_React$Component) {
-	    _inherits(_class, _React$Component);
+	  var Classfied = function (_React$Component) {
+	    _inherits(Classfied, _React$Component);
 
-	    function _class() {
-	      _classCallCheck(this, _class);
+	    function Classfied() {
+	      _classCallCheck(this, Classfied);
 
-	      return _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).apply(this, arguments));
+	      return _possibleConstructorReturn(this, (Classfied.__proto__ || Object.getPrototypeOf(Classfied)).apply(this, arguments));
 	    }
 
-	    _createClass(_class, [{
+	    _createClass(Classfied, [{
 	      key: 'render',
 	      value: function render() {
 	        var _props = this.props,
@@ -24602,8 +24599,15 @@
 	      }
 	    }]);
 
-	    return _class;
+	    return Classfied;
 	  }(_react2.default.Component);
+
+	  Classfied.propTypes = {
+	    className: _react.PropTypes.string,
+	    children: _react.PropTypes.node
+	  };
+
+	  return Classfied;
 	};
 
 	exports.default = ClassfiedComponent;
@@ -43946,6 +43950,7 @@
 	Spinner.propTypes = {
 	  style: _react.PropTypes.object,
 	  className: _react.PropTypes.string,
+	  children: _react.PropTypes.node,
 	  size: _react.PropTypes.string,
 	  colorful: _react.PropTypes.any
 	};
@@ -47826,6 +47831,8 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -47875,9 +47882,7 @@
 	          label = _props.label,
 	          demo = _props.demo,
 	          code = _props.code,
-	          back = _props.back,
-	          onClick = _props.onClick;
-
+	          restProps = _objectWithoutProperties(_props, ['label', 'demo', 'code']);
 
 	      var styleCode = _extends({}, _styles2.default['doc-example-code'], this.state.expand && _styles2.default['doc-example-showcode doc-example-code']);
 
@@ -47909,7 +47914,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          (0, _glamor.css)(_styles2.default['doc-example-demo']),
-	          _react2.default.cloneElement(demo, { back: back, onClick: onClick })
+	          _react2.default.cloneElement(demo, restProps)
 	        ),
 	        _react2.default.createElement(
 	          'pre',
