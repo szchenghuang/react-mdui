@@ -1,6 +1,7 @@
 'use strict';
 
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import ClassNames from 'classnames';
 
 import Icon from '../Icon';
@@ -33,12 +34,7 @@ class Delete extends React.Component {
 
 Delete.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node,
-  onClick: PropTypes.func
-};
-
-Delete.defaultProps = {
-  onClick: () => {}
+  children: PropTypes.node
 };
 
 export default Delete;

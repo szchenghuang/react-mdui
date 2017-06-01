@@ -1,6 +1,7 @@
 'use strict';
 
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import ClassNames from 'classnames';
 
 class Button extends React.Component {
@@ -69,15 +70,13 @@ Button.propTypes = {
   icon: PropTypes.any,
   block: PropTypes.any,
   ripple: PropTypes.any,
-  disabled: PropTypes.any,
-  onClick: PropTypes.func
+  disabled: PropTypes.any
 };
 
 Button.defaultProps = {
   node: 'button',
   flat: true,
-  ripple: true,
-  onClick: () => {}
+  ripple: true
 };
 
 export default Button;

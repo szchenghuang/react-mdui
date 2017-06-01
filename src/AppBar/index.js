@@ -1,6 +1,7 @@
 'use strict';
 
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import ClassNames from 'classnames';
 
 import { addClass } from '../utils';
@@ -24,7 +25,6 @@ class AppBar extends React.Component {
       }
     }
   }
-
   render() {
     const {
       className,
